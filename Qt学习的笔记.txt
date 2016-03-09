@@ -1,0 +1,12 @@
+1.关于乱码问题：
+        设置统一编码：
+        在main中加入：
+     QTextCodec::setCodecForTr(QTextCodec::codecForName("utf-8"));
+     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf-8"));
+     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("utf-8"));
+之后，无论使用：
+        1.          qDebug()<<"字符";
+        2.          qDebug()<<QObject::tr("字符");
+        3.          QString a="字符";
+        4.          qDebug()<<a;
+都不会存在字符的乱码问题
