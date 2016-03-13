@@ -13,8 +13,22 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    login.cpp \
+    qboxclient.cpp \
+    register.cpp \
+    forgetpassword.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    login.h \
+    qboxclient.h \
+    register.h \
+    forgetpassword.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    login.ui \
+    register.ui \
+    forgetpassword.ui
+
+RESOURCES += \
+    resource.qrc

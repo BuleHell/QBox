@@ -10,3 +10,21 @@
         3.          QString a="字符";
         4.          qDebug()<<a;
 都不会存在字符的乱码问题
+2.在Qt中使用Qsetrings来进行记录数据，不要使用注册表，等等之类的来记录数据，因为，那样没有跨平台性
+3.自定义关闭和打开按钮，防止，不同的系统不一样、
+4.使用CSS来美化界面
+
+5.聊天界面使用WEBKIT来实现
+也可以是使用QTextBorrow来进行设计（使用HTML）
+6.关于TCP：
+        Qt给出了一个方案：
+                 fortu  就可以搜索出来了
+ Anychat：跨平台解决方案
+
+ V4L：图像采集技术 V4L(Video  for  Linux  )是 Linux 内核中关于语音设备的子系统
+
+ 好友列表： QtableWidget 
+ Qt 的 GUI 机制为屏幕显示提供了统一的
+API 接口，分别为 QPainter 类、QPaintDevice 类、QPaintEngine 类。其中 QPainter
+类提供了丰富的操作接口，可以很方便的绘制（代码略）。
+ Jabber 协议

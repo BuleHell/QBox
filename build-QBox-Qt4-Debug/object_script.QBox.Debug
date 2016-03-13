@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\login.o
+./debug\qboxclient.o
+./debug\register.o
+./debug\forgetpassword.o
+./debug\moc_mainwindow.o
+./debug\moc_login.o
+./debug\moc_qboxclient.o
+./debug\moc_register.o
+./debug\moc_forgetpassword.o
+./debug\qrc_resource.o
+);
