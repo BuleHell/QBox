@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Register</class>
+ <widget class="QWidget" name="Register">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*全局限定*/
+* {	font-family: &quot;微软雅黑&quot;; font-size: 15px;}
+/*上部背景*/
+QLabel#labelBackgroundUp
+{    
+	background-color: rgb(0, 170, 255);
+    outline:none;
+	color:#333;
+}
+/*下部背景*/
+QLabel#labelBackgroundDown
+{
+    background-color: rgb(0, 170,150);
+    outline:none;
+	color:#333;
+
+}
+/*关闭按钮*/
+QPushButton#btnClose {
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+}
+QPushButton#btnClose:hover {
+	background: red;
+}
+
+/*输入框全局设置*/
+QLineEdit {
+	border: none;    
+	font: 75 15pt &quot;微软雅黑&quot;;
+	background: transparent;
+}
+/*输入选项设定*/
+QWidget#widgetConfirm,#widgetMail,#widgetPhone,#widgetPassword,#widgetUserName{
+   border: 2px solid #c9c9c9;
+}
+/*注册按钮*/
+QPushButton#btnRegister {
+	border: 1px solid #c9c9c9;
+	background: #569082;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+}
+QPushButton#btnRegister:hover {
+	border: 1px solid #c9c9c9;
+	background: #ff9032;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+   
+}
+QPushButton#btnRegister:pressed {
+	border:3px solid #c9c9c9;
+	background: #569082;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 20px;
+   
+}</string>
+  </property>
+  <widget class="QLabel" name="labelBackgroundUp">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>361</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/Triangle.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelBackgroundDown">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>70</y>
+     <width>361</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/Triangle.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widgetUserName" native="true">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>78</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelusername">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>5</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/person.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditUserName">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>0</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widgetPassword" native="true">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>128</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelpassword">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>6</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/passwd.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditPassword">
+    <property name="geometry">
+     <rect>
+      <x>52</x>
+      <y>-1</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widgetConfirm" native="true">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>177</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelconfirm">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>6</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/password2.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditConfirm">
+    <property name="geometry">
+     <rect>
+      <x>52</x>
+      <y>0</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widgetMail" native="true">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>226</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelmail">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>7</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/mail.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>0</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widgetPhone" native="true">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>275</y>
+     <width>261</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="labelphone">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>4</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/phone.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditPhone">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>0</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btnRegister">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>330</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>注册</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>0</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
