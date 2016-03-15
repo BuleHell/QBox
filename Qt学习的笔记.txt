@@ -28,3 +28,15 @@
 API 接口，分别为 QPainter 类、QPaintDevice 类、QPaintEngine 类。其中 QPainter
 类提供了丰富的操作接口，可以很方便的绘制（代码略）。
  Jabber 协议
+
+#include<QTextStream>
+写入一下code：
+   QString str;
+   QTextStream in(stdin);
+   in>>str;
+   QTextStream out(stdout);
+   out<<str<<endl;
+接下来进入Project-->Rua Setting将Run in terminal打钩，
+然后执行Rebuild All。
+ok，run起来吧。。
+皆さん、☆GOODNIGHT☆(；д；）Qt关于控制台输入输出
