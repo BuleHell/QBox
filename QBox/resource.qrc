@@ -8,4 +8,14 @@
         <file>resource/image/login/phone.png</file>
         <file>resource/image/login/Triangle.png</file>
     </qresource>
+    <qresource prefix="/resource/image/mianwindows/ui">
+        <file>resource/image/mainwindow/ui/add.png</file>
+        <file>resource/image/mainwindow/ui/contact.png</file>
+        <file>resource/image/mainwindow/ui/contact_dark.png</file>
+        <file>resource/image/mainwindow/ui/group.png</file>
+        <file>resource/image/mainwindow/ui/group_dark.png</file>
+        <file>resource/image/mainwindow/ui/icon.png</file>
+        <file>resource/image/mainwindow/ui/settings.png</file>
+        <file>resource/image/mainwindow/ui/transfer.png</file>
+    </qresource>
 </RCC>
