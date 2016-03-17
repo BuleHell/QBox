@@ -6,8 +6,9 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-    //    第一个参数是设置无边框。第二个参数是允许最小化与还原。
+    //第一个参数是设置无边框。第二个参数是允许最小化与还原。
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint);
+    this->ui->lineEditUser->setFocus(); //将光标转到用户名输入框
     //安装事件监听器
     ui->labelForget->installEventFilter(this);
     ui->labelRegist->installEventFilter(this);

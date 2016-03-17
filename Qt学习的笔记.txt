@@ -28,3 +28,15 @@
 API 接口，分别为 QPainter 类、QPaintDevice 类、QPaintEngine 类。其中 QPainter
 类提供了丰富的操作接口，可以很方便的绘制（代码略）。
  Jabber 协议
+ int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    Widget w;
+    loginDlg login;
+    if(login.exec()==QDialog::Accepted)
+    {
+        w.show();
+        return a.exec();
+    }
+    else return 0;
+}
