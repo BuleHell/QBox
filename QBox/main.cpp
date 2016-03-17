@@ -13,8 +13,11 @@ int main(int argc, char *argv[])
 
     //
     QBoxClient *myQBox=new QBoxClient();
-   //登录界面分支结束
+    //登录界面分支结束
     // myQBox->showLogin();
-    myQBox->showMainWindow();
+    //主界面分支结束
+//    myQBox->showMainWindow();
+
+
     return a.exec();
 }
