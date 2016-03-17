@@ -43,7 +43,8 @@ bool Login::eventFilter(QObject *obj, QEvent *ev)
             return true;
         }
 
-    } if(obj==ui->labelRegist)
+    }
+    else if (obj==ui->labelRegist)
     {
         if(ev->type()==QEvent::MouseButtonPress)
         {
@@ -57,6 +58,7 @@ bool Login::eventFilter(QObject *obj, QEvent *ev)
 
         return QWidget::eventFilter(obj,ev);
     }
+    return QWidget::eventFilter(obj,ev);
 }
 
 void Login::on_btnLogin_clicked()
@@ -73,6 +75,7 @@ void Login::on_btnMin_clicked()
 void Login::on_btnClose_clicked()
 {
     //关闭
+    qDebug()<<"你点击了关闭按钮";
     this->close();
 }
 
