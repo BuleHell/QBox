@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     login.cpp \
     qboxclient.cpp \
     register.cpp \
-    forgetpassword.cpp
+    forgetpassword.cpp \
+    network.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
     qboxclient.h \
     register.h \
-    forgetpassword.h
+    forgetpassword.h \
+    network.h
 
 FORMS    += mainwindow.ui \
     login.ui \

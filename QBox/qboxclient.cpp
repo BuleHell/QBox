@@ -20,6 +20,5 @@ void QBoxClient::showLogin()
 
 void QBoxClient::showMainWindow()
 {
-    mainwindow=new MainWindow();
-    mainwindow->show();
+    
 }

@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("utf-8"));
     //------------------------------------------------------------------
 
-    //
+    //我的客户端
     QBoxClient *myQBox=new QBoxClient();
-    //登录界面分支结束
-     myQBox->showLogin();
-    //主界面分支结束
-     myQBox->showMainWindow();
+//    //登录界面分支结束
+//     myQBox->showLogin();
+//    //主界面分支结束
+//     myQBox->showMainWindow();
 
 
     return a.exec();
