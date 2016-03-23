@@ -2,6 +2,7 @@
 #include<QtGui>
 #include<QDebug>
 #include"qboxclient.h"
+#include"qboxprotocol.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -17,6 +18,8 @@ int main(int argc, char *argv[])
 //     myQBox->showLogin();
 //    //主界面分支结束
 //     myQBox->showMainWindow();
+    QBoxProtocol pp;
+
 
 
     return a.exec();
