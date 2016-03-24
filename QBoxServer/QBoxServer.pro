@@ -20,3 +20,6 @@ HEADERS  += \
 
 FORMS    += \
     window.ui
+
+RESOURCES += \
+    resource.qrc
