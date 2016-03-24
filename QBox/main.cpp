@@ -30,11 +30,6 @@ int main(int argc, char *argv[])
     QString MyID;
     QDateTime TT;
     QDateTime t=QDateTime::currentDateTime();
-//    qDebug()<<t;
-//    time2.setMSecsSinceEpoch(t);
-//    qDebug()<<time2.time();
-//    qDebug()<<time2.date();
-
     enum QBOXMESSAGETYPE type=LOGIN;
     quint16 bbb;
     pp.makeHead(type,0,id,t);
