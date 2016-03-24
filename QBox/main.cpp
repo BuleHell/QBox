@@ -1,8 +1,15 @@
 ﻿#include <QApplication>
 #include<QtGui>
 #include<QDebug>
+ #include <QThread>
+
+//-----------------------------
 #include"qboxclient.h"
 #include"qboxprotocol.h"
+//---------------------------------
+
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -13,12 +20,30 @@ int main(int argc, char *argv[])
     //------------------------------------------------------------------
 
     //我的客户端
-    QBoxClient *myQBox=new QBoxClient();
+//    QBoxClient *myQBox=new QBoxClient();
 //    //登录界面分支结束
 //     myQBox->showLogin();
 //    //主界面分支结束
 //     myQBox->showMainWindow();
     QBoxProtocol pp;
+    QString id="12345678912";
+    QString MyID;
+    QDateTime TT;
+    QDateTime t=QDateTime::currentDateTime();
+//    qDebug()<<t;
+//    time2.setMSecsSinceEpoch(t);
+//    qDebug()<<time2.time();
+//    qDebug()<<time2.date();
+
+    enum QBOXMESSAGETYPE type=LOGIN;
+    quint16 bbb;
+    pp.makeHead(type,0,id,t);
+
+    quint16 size;
+
+    pp.openHead(pp.getBlock(),size,bbb,MyID,TT);
+
+    qDebug()<<size<<bbb<<MyID<<TT;
 
 
 
