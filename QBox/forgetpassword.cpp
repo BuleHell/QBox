@@ -35,5 +35,6 @@ void ForgetPassword::mousePressEvent(QMouseEvent *event)
 
 void ForgetPassword::on_btnClose_clicked()
 {
+
     this->destroy();
 }

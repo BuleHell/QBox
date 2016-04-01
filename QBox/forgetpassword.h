@@ -22,6 +22,9 @@ protected:
 
 private slots:
     void on_btnClose_clicked();
+signals:
+    //把数据传出去
+    //    void
 
 private:
     Ui::ForgetPassword *ui;

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     register.cpp \
     forgetpassword.cpp \
     network.cpp \
-    qboxprotocol.cpp
+    qboxprotocol.cpp \
+    dbhelp.cpp \
+    setting.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -27,7 +29,9 @@ HEADERS  += mainwindow.h \
     register.h \
     forgetpassword.h \
     network.h \
-    qboxprotocol.h
+    qboxprotocol.h \
+    dbhelp.h \
+    setting.h
 
 FORMS    += mainwindow.ui \
     login.ui \
@@ -36,3 +40,7 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     resource.qrc
+
+OTHER_FILES += \
+    icon.rc
+RC_FILE += icon.rc

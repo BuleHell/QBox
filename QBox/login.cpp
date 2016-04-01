@@ -12,6 +12,8 @@ Login::Login(QWidget *parent) :
     //安装事件监听器
     ui->labelForget->installEventFilter(this);
     ui->labelRegist->installEventFilter(this);
+    //做一个在登录界面上的动画
+
 }
 
 Login::~Login()
