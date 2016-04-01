@@ -21,8 +21,7 @@ SOURCES += main.cpp\
     network.cpp \
     qboxprotocol.cpp \
     dbhelp.cpp \
-    setting.cpp \
-    messagerecorder.cpp
+    setting.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -32,8 +31,7 @@ HEADERS  += mainwindow.h \
     network.h \
     qboxprotocol.h \
     dbhelp.h \
-    setting.h \
-    messagerecorder.h
+    setting.h
 
 FORMS    += mainwindow.ui \
     login.ui \
