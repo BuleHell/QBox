@@ -5,11 +5,14 @@ DBHelp::~DBHelp()
 {
     qDebug()<<QObject::tr("析构函数被执行");
     db.close();
+    qDebug()<<QObject::tr("数据库关闭");
+
 }
 
 DBHelp::DBHelp()
 {
     qDebug()<<QObject::tr("构造函数被执行");
+    qDebug()<<QObject::tr("请链接并打开数据库");
 }
 
 bool DBHelp::LinkDatabase()
@@ -29,7 +32,6 @@ bool DBHelp::LinkDatabase()
 
     //创建数据库
     db = QSqlDatabase::addDatabase("QSQLITE");
-
     db.setHostName("QBox");
     db.setDatabaseName("QBOX.db");
     db.setUserName("xjt");
@@ -71,7 +73,8 @@ bool DBHelp::LinkDatabase()
 bool DBHelp::insert_userList(QString id, QString name, quint8 status, QString photo, QString info, quint8 isfriend)
 {
 
-    if (!db.open()) {
+    if (!db.open())
+    {
         //提示出错
         qDebug()<<QObject::tr("数据库无法打开!");
         return false;
@@ -81,14 +84,12 @@ bool DBHelp::insert_userList(QString id, QString name, quint8 status, QString ph
     query.prepare(QString("INSERT INTO UserList (userID, userName, userstatus,userPhoto,userInfo,isFriend) VALUES ('%1','%2',%3,'%4','%5',%6)").arg(id).arg(name).arg(status).arg(photo).arg(info).arg(isfriend));
     if( !query.exec() )
     {
-        qDebug() << query.lastError();
-        qDebug()<<QObject::tr("插入失败");
+        qDebug() <<QObject::tr("用户列表UserList插入失败:")<<query.lastError();
         return false;
     }
-
     else
     {
-        qDebug()<<QObject::tr("插入成功");
+        qDebug()<<QObject::tr("用户列表UserList数据插入成功");
         return true;
     }
 }
@@ -98,24 +99,21 @@ void DBHelp::showUserList()
     if (!db.open()) {
         //提示出错
         qDebug()<<QObject::tr("数据库无法打开!");
-        return ;
+        return;
     }
-    //插入
+    //查询
     QSqlQuery query;
     query.prepare("select * from UserList ");
     if( !query.exec() )
     {
-        qDebug() << query.lastError();
-        qDebug()<<QObject::tr("查询失败");
-        return ;
+        qDebug() <<QObject::tr("查询UserList失败:")<< query.lastError();
+        return;
     }
-
     else
     {
         qDebug()<<QObject::tr("查询成功");
         while(query.next())
         {
-
             //            qDebug() <<query.value(0).toString()
             //                    <<query.value(1).toString()
             //            <<query.value(2).toInt()
@@ -123,9 +121,7 @@ void DBHelp::showUserList()
             //            <<query.value(4).toString()
             //            <<query.value(5).toInt();
             emit SLOT_showUserList(query.value(0).toString(),query.value(1).toString(),query.value(2).toInt(),query.value(3).toString(),query.value(4).toString(),query.value(5).toInt());
-
         }
-
         return ;
     }
 

@@ -11,8 +11,6 @@ class DBHelp : public QObject
 {
     Q_OBJECT
 public:
-    //    explicit DBHelp(QObject *parent = 0);
-public:
     static DBHelp* Mydb;
     static DBHelp* getInstance()
     {
@@ -21,12 +19,13 @@ public:
         return DBHelp::Mydb;
     }
     ~DBHelp();
+
 private:
     DBHelp();
-public:
-    //创建数据库
-    bool LinkDatabase();//链接数据库
 
+public:
+    //创建数据库并链接数据库（必须执行）
+    bool LinkDatabase();
 
 signals:
     //发送查询的数据
@@ -47,13 +46,11 @@ public slots:
     void showGroupMessage();
     //更新用户列表
 
-
     //删除用户列表
 
 private:
     QSqlDatabase db;
 
-    
 };
 
 #endif // DBHELP_H

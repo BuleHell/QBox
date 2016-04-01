@@ -14,8 +14,6 @@ Login::Login(QWidget *parent) :
     ui->labelRegist->installEventFilter(this);
     //做一个在登录界面上的动画
 
-
-
 }
 
 Login::~Login()
