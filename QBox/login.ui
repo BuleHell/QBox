@@ -214,8 +214,8 @@ QWidget#widgetPassword {
   <widget class="QLabel" name="labelRegist">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>186</y>
+     <x>389</x>
+     <y>190</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -228,9 +228,9 @@ QWidget#widgetPassword {
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>244</y>
+     <y>249</y>
      <width>61</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -369,17 +369,14 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
   <widget class="QLabel" name="Logo">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>-10</y>
-     <width>431</width>
-     <height>141</height>
+     <x>0</x>
+     <y>-1</y>
+     <width>530</width>
+     <height>130</height>
     </rect>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/logo.png</pixmap>
    </property>
   </widget>
  </widget>

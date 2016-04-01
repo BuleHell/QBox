@@ -23,12 +23,9 @@
 
  V4L：图像采集技术 V4L(Video  for  Linux  )是 Linux 内核中关于语音设备的子系统
 
- 好友列表： QtableWidget 
- Qt 的 GUI 机制为屏幕显示提供了统一的
-API 接口，分别为 QPainter 类、QPaintDevice 类、QPaintEngine 类。其中 QPainter
-类提供了丰富的操作接口，可以很方便的绘制（代码略）。
- Jabber 协议
- int main(int argc, char *argv[])
+好友列表： QtableWidget 
+//代码展示：
+int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Widget w;
@@ -40,3 +37,7 @@ API 接口，分别为 QPainter 类、QPaintDevice 类、QPaintEngine 类。其中 QPainter
     }
     else return 0;
 }
+
+
+   QString msg = ui->textEdit->toHtml();
+        QString time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
