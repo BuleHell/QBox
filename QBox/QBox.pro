@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     network.cpp \
     qboxprotocol.cpp \
     dbhelp.cpp \
-    setting.cpp
+    setting.cpp \
+    groupsetting.cpp \
+    tools.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -31,7 +33,9 @@ HEADERS  += mainwindow.h \
     network.h \
     qboxprotocol.h \
     dbhelp.h \
-    setting.h
+    setting.h \
+    groupsetting.h \
+    tools.h
 
 FORMS    += mainwindow.ui \
     login.ui \
