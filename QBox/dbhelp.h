@@ -2,7 +2,6 @@
 #define DBHELP_H
 
 #include <QObject>
-#include <QtSql>
 #include <QDebug>
 #include<QDateTime>
 //这个类最主要是进行一些相应的数据库操作的东西
