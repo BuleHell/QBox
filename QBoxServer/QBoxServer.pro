@@ -13,10 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    window.cpp
+    window.cpp \
+    tools.cpp \
+    network.cpp \
+    dbhelp.cpp
 
 HEADERS  += \
-    window.h
+    window.h \
+    tools.h \
+    network.h \
+    dbhelp.h
 
 FORMS    += \
     window.ui
