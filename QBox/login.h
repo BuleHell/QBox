@@ -4,13 +4,12 @@
 #include <QtGui>
 #include <QMouseEvent>
 #include <QPoint>
+#include"tools.h"
 #include"register.h"
 #include"forgetpassword.h"
 /*
  *这个文件的作用是处理登陆的逻辑
  *登录的界面在ui中设置，使用完全的MVC模式进行编码
- *
- *
  */
 namespace Ui {
 class Login;
@@ -38,6 +37,11 @@ private slots:
 
     void on_btnClose_clicked();
 
+    //设置找回密码方式
+    void getMyLostPWD(int way);
+    //设置注册的信息
+    void registeredInfo(QString name,QString password,QString eamil,QString phone);
+    void registeredBack();
 private:
 
     Ui::Login *ui;
@@ -50,6 +54,7 @@ private:
     Register *registerView;
     //忘记密码页面
     ForgetPassword *forgetpwdView;
+    int forget_way;
 
 public:
     void showForgetPwdView();

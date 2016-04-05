@@ -254,7 +254,7 @@ QPushButton#btnRegister:pressed {
      <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/mail.png</pixmap>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
+   <widget class="QLineEdit" name="lineEditMail">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -328,6 +328,15 @@ QPushButton#btnRegister:pressed {
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEditUserName</tabstop>
+  <tabstop>lineEditPassword</tabstop>
+  <tabstop>lineEditConfirm</tabstop>
+  <tabstop>lineEditMail</tabstop>
+  <tabstop>lineEditPhone</tabstop>
+  <tabstop>btnRegister</tabstop>
+  <tabstop>btnClose</tabstop>
+ </tabstops>
  <resources>
   <include location="resource.qrc"/>
  </resources>

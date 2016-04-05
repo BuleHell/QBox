@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
+QT       += network
+QT       += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,13 +18,19 @@ SOURCES += main.cpp\
     window.cpp \
     tools.cpp \
     network.cpp \
-    dbhelp.cpp
+    dbhelp.cpp \
+    qboxprotocol.cpp \
+    mytcpserver.cpp \
+    myclientsocket.cpp
 
 HEADERS  += \
     window.h \
     tools.h \
     network.h \
-    dbhelp.h
+    dbhelp.h \
+    qboxprotocol.h \
+    mytcpserver.h \
+    myclientsocket.h
 
 FORMS    += \
     window.ui

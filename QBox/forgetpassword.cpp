@@ -8,12 +8,10 @@ ForgetPassword::ForgetPassword(QWidget *parent) :
     ui(new Ui::ForgetPassword)
 {
     ui->setupUi(this);
-//    第一个参数是设置无边框。第二个参数是允许最小化与还原。
-//    嗯，这样舒服多了。
+    //    第一个参数是设置无边框。第二个参数是允许最小化与还原。
+    //    嗯，这样舒服多了。
     this->setWindowFlags(Qt::FramelessWindowHint);
-    //            //居中显示 static QDesktopWidget *desktop();
-
-//    move ((screen.width() - this->width())/2,(screen.height() - this->height())/2);
+    Tools::FormInCenter(this);
 }
 
 ForgetPassword::~ForgetPassword()
@@ -35,6 +33,23 @@ void ForgetPassword::mousePressEvent(QMouseEvent *event)
 
 void ForgetPassword::on_btnClose_clicked()
 {
+    emit way(0);
+    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->close();
+}
 
-    this->destroy();
+void ForgetPassword::on_btnPhone_clicked()
+{
+    //1是短信通知
+    emit way(1);
+    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->close();
+}
+
+void ForgetPassword::on_btnMail_clicked()
+{
+    //    2是邮件通知
+    emit way(2);
+    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->close();
 }

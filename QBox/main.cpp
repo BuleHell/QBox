@@ -1,14 +1,8 @@
 ﻿#include <QApplication>
 #include<QtGui>
 #include<QDebug>
- #include <QThread>
-
-//-----------------------------
-
-//---------------------------------
-
-
-
+#include <QThread>
+#include"qboxclient.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -18,15 +12,11 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("utf-8"));
     //------------------------------------------------------------------
 
-//我的客户端
-//    QBoxClient *myQBox=new QBoxClient();
-//    //登录界面分支结束
-//     myQBox->showLogin();
-//    //主界面分支结束
-//     myQBox->showMainWindow();
-//      协议测试完毕
-
-
-
+    //我的客户端
+    QBoxClient myQBox;
+    //登录界面分支结束
+    myQBox.showLogin();
+    //主界面分支结束
+    //    myQBox->showMainWindow();
     return a.exec();
 }

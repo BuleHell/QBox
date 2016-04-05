@@ -13,6 +13,10 @@ Login::Login(QWidget *parent) :
     ui->labelForget->installEventFilter(this);
     ui->labelRegist->installEventFilter(this);
     //做一个在登录界面上的动画
+    ui->Logo->setText(QObject::tr("欢迎你使用QBox"));
+    ui->Logo->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+    //窗体居中显示
+    Tools::FormInCenter(this);
 
 }
 
@@ -65,7 +69,10 @@ bool Login::eventFilter(QObject *obj, QEvent *ev)
 
 void Login::on_btnLogin_clicked()
 {
+
     qDebug()<<"你点击了登录按钮";
+    ui->Logo->setText(QObject::tr("正在登录中，请稍等"));
+    ui->btnLogin->setEnabled(false);
 }
 
 void Login::on_btnMin_clicked()
@@ -81,20 +88,55 @@ void Login::on_btnClose_clicked()
     this->close();
 }
 
+void Login::getMyLostPWD(int way)
+{
+    qDebug()<<"你要找回密码的方式是"<<way;
+    //窗体居中显示
+    Tools::FormInCenter(this);
+    this->show();
+}
+
+void Login::registeredInfo(QString name, QString password, QString eamil, QString phone)
+{
+    //窗体居中显示
+    Tools::FormInCenter(this);
+    this->show();
+}
+
+void Login::registeredBack()
+{
+    qDebug()<<"什么注册信息都没有使用";
+    //窗体居中显示
+    Tools::FormInCenter(this);
+    this->show();
+}
+
 void Login::showForgetPwdView()
 {
     qDebug()<<"你点击了忘记密码的按钮";
     forgetpwdView=new ForgetPassword();
-    this->hide();
+    //链接忘记密码的监视器
+    connect(forgetpwdView,SIGNAL(way(int)),this,SLOT(getMyLostPWD(int)));
+//    this->hide();
+   this->close();
+    forgetpwdView->setWindowModality(Qt::ApplicationModal);
+    //窗体居中显示
+    Tools::FormInCenter(forgetpwdView);
     forgetpwdView->show();
-    //    //居中显示
-    //    move ((QApplication::desktop()->width() - registerView->width())/2,(QApplication::desktop()->height() - registerView->height())/2);
+
 }
 
 void Login::showRegisterView()
 {
     qDebug()<<"你点击了注册的按钮";
     registerView=new Register();
-    this->hide();
+    //链接注册的监视器
+    connect(registerView,SIGNAL(PersonInfo(QString,QString,QString,QString)),this,SLOT(registeredInfo(QString,QString,QString,QString)));
+    connect(registerView,SIGNAL(nothingback()),this,SLOT(registeredBack()));
+//    this->hide();
+    this->close();
+    registerView->setWindowModality(Qt::ApplicationModal);
+    //窗体居中显示
+    Tools::FormInCenter(registerView);
     registerView->show();
 }

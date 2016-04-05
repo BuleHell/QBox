@@ -2,6 +2,7 @@
 #define FORGETPASSWORD_H
 
 #include <QWidget>
+#include"tools.h"
 
 namespace Ui {
 class ForgetPassword;
@@ -22,10 +23,13 @@ protected:
 
 private slots:
     void on_btnClose_clicked();
+    void on_btnPhone_clicked();
+
+    void on_btnMail_clicked();
+
 signals:
     //把数据传出去
-    //    void
-
+    void way(int i);
 private:
     Ui::ForgetPassword *ui;
     //这三个点：记录移动的事件

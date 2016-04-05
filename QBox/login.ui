@@ -23,6 +23,12 @@ QLabel#labelLogo {
 	outline:none;
 	color:#333;
 }
+/*再来一个Logo动画*/
+QLabel#Logo{
+	background: #009082;
+	outline:none;
+	color:#333;
+}
 
 /*注册*/
 QLabel#labelRegist {
@@ -370,13 +376,22 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-1</y>
+     <y>48</y>
      <width>530</width>
-     <height>130</height>
+     <height>80</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>-1</pointsize>
+    </font>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
