@@ -1,9 +1,14 @@
 ﻿#include "network.h"
-
+NetWork * NetWork::Mynet=NULL;
 NetWork::NetWork(QObject *parent) :
     QObject(parent)
 {
+    qDebug()<<QObject::tr("客户端的Net构造函数被调用");
+}
 
+NetWork::~NetWork()
+{
+    qDebug()<<QObject::tr("客户端的Net析构函数被调用");
 }
 
 void NetWork::initSocket()
@@ -31,7 +36,7 @@ QByteArray NetWork::ReadData()
 
 }
 
-void NetWork::writeData(QByteArray &data)
+void NetWork::writeData(QByteArray data)
 {
     tcpClient->write(data);
 }

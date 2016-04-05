@@ -304,7 +304,7 @@ QWidget#widgetMystatus{
         <widget class="QWidget" name="widgetLeft" native="true">
          <property name="maximumSize">
           <size>
-           <width>200</width>
+           <width>287</width>
            <height>16777215</height>
           </size>
          </property>
@@ -400,19 +400,160 @@ QWidget#widgetMystatus{
            </widget>
           </item>
           <item>
-           <widget class="QScrollArea" name="scrollArea">
-            <property name="widgetResizable">
-             <bool>true</bool>
+           <widget class="QTabWidget" name="FriendList_tabWidget">
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
             </property>
-            <widget class="QWidget" name="FriendList">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>193</width>
-               <height>359</height>
-              </rect>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    border-top: none;
+	background-color: rgb(255, 255, 255);
+}
+
+QTabWidget::tab-bar {
+    left: 0px; /* move to the right by 5px */
+	
+}
+
+/* Style the tab using the tab sub-control. Note that
+    it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+
+ 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #EDEDED, stop: 0.4 #D0D0D0,
+                                stop: 0.5 #C8C8C8, stop: 1.0 #C3C3C3);
+text-align:center;
+	width:93px;
+	height:30px;
+   border: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    min-width: 8ex;
+    padding: 0px;
+}
+
+QTabBar::tab:hover {
+	 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #DDDDDD, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(255, 255, 255);
+   
+}
+
+QTabBar::tab:!selected {
+    margin-top: 0px; /* make non-selected tabs look smaller */
+}
+
+                            </string>
+            </property>
+            <property name="tabPosition">
+             <enum>QTabWidget::North</enum>
+            </property>
+            <property name="tabShape">
+             <enum>QTabWidget::Rounded</enum>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>52</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="elideMode">
+             <enum>Qt::ElideNone</enum>
+            </property>
+            <property name="documentMode">
+             <bool>false</bool>
+            </property>
+            <property name="tabsClosable">
+             <bool>false</bool>
+            </property>
+            <property name="movable">
+             <bool>false</bool>
+            </property>
+            <widget class="QWidget" name="Near_tab">
+             <attribute name="icon">
+              <iconset>
+               <normaloff>:/images/images/recentList_unselect.svg</normaloff>
+               <normalon>:/images/images/recentList_select.svg</normalon>:/images/images/recentList_unselect.svg</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>最近</string>
+             </attribute>
+             <widget class="QTreeView" name="treeView">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>280</width>
+                <height>391</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QTreeView {
+    show-decoration-selected: 1;
+	border:none;
+}
+
+QTreeView::item {
+     border: 1px solid #d9d9d9;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+QTreeView::item:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e7effd, stop: 1 #cbdaf1);
+    border: 1px solid #bfcde4;
+}
+
+QTreeView::item:selected {
+    border: 1px solid #567dbc;
+}
+
+QTreeView::item:selected:active{
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6ea1f1, stop: 1 #567dbc);
+}
+
+QTreeView::item:selected:!active {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6b9be8, stop: 1 #577fbf);
+}</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="Friends_tab">
+             <attribute name="icon">
+              <iconset>
+               <normaloff>:/images/images/friendList_unselect.svg</normaloff>
+               <normalon>:/images/images/friendList_select.svg</normalon>:/images/images/friendList_unselect.svg</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>好友</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="Groups_tab">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
+             <attribute name="icon">
+              <iconset>
+               <normaloff>:/images/images/groupList_unselect.svg</normaloff>
+               <normalon>:/images/images/groupList_select.svg</normalon>:/images/images/groupList_unselect.svg</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>群组</string>
+             </attribute>
             </widget>
            </widget>
           </item>
@@ -696,6 +837,11 @@ QWidget#widgetMystatus{
                 <height>16777215</height>
                </size>
               </property>
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="0" column="0">
+                <widget class="QTextEdit" name="textEdit"/>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -925,12 +1071,6 @@ QWidget#widgetMystatus{
         </layout>
        </item>
       </layout>
-      <zorder>widgetLeft</zorder>
-      <zorder>widgetTalk</zorder>
-      <zorder>widgetYou</zorder>
-      <zorder>MessageView</zorder>
-      <zorder>labelLogo</zorder>
-      <zorder>titleBar</zorder>
      </widget>
     </item>
    </layout>

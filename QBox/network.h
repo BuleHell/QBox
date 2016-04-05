@@ -16,12 +16,20 @@ class NetWork : public QObject
 {
     Q_OBJECT
 public:
-    explicit NetWork(QObject *parent = 0);
+    NetWork(QObject *parent = 0);
+    static NetWork* Mynet;
+    static NetWork* getInstance()
+    {
+        if(NetWork::Mynet == NULL)  //判断是否第一次调用
+            NetWork::Mynet = new NetWork();
+        return NetWork::Mynet;
+    }
+    ~NetWork();
+
+
     void initSocket();//初始化套接字
     
 signals:
-
-
     //--------------------------------------------------
 public slots:
     //链接服务器失败的错误消息槽:输出错误信息
@@ -30,8 +38,8 @@ public slots:
     QByteArray ReadData();
 public:
     //写入数据
-    void writeData(QByteArray &data);
-    //set和get
+    void writeData(QByteArray data);
+    //set和get--------------------------------------------
     QHostAddress getHostAddress() const;
     void setHostAddress(const QHostAddress &value);
 
@@ -40,13 +48,12 @@ public:
 
     quint16 getBlockSize() const;
     void setBlockSize(const quint16 &value);
-
+    //----------------------------------------------------
 private:
     //连接
     bool TCPToHost(QHostAddress hostAddress,qint16 tcpPort);
     //断开链接
     bool TCPoffHost();
-
     //--------------------------------------------------
 private:
     //----------------------------------

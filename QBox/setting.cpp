@@ -7,7 +7,7 @@ Setting * Setting::setting=NULL;
 //析构之前，先保存
 Setting::~Setting()
 {
-
+    qDebug()<<"setting析构函数";
     Save();
 
 }
@@ -71,6 +71,7 @@ void Setting::Load()
 //保存函数1
 void Setting::Save()
 {
+    qDebug()<<"SAVE";
     QString filePath = getSettingsDirPath() + '/' + FILENAME;
     Save(filePath);
 }

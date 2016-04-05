@@ -20,5 +20,7 @@ void QBoxClient::showLogin()
 
 void QBoxClient::showMainWindow()
 {
-    
+    login->setAttribute(Qt::WA_DeleteOnClose);
+    login->close();
+    mainwindow=new MainWindow();
 }

@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include<QtGui>
+#include"network.h"
+
 namespace Ui {
 class Window;
 }

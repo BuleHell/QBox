@@ -4,9 +4,11 @@
 #include <QtGui>
 #include <QMouseEvent>
 #include <QPoint>
+#include"network.h"
 #include"tools.h"
 #include"register.h"
 #include"forgetpassword.h"
+#include"setting.h"
 /*
  *这个文件的作用是处理登陆的逻辑
  *登录的界面在ui中设置，使用完全的MVC模式进行编码
@@ -42,6 +44,9 @@ private slots:
     //设置注册的信息
     void registeredInfo(QString name,QString password,QString eamil,QString phone);
     void registeredBack();
+
+    //登录成功的处理函数
+    void LoginSuccess();
 private:
 
     Ui::Login *ui;
@@ -54,13 +59,41 @@ private:
     Register *registerView;
     //忘记密码页面
     ForgetPassword *forgetpwdView;
-    int forget_way;
+    int forget_way;//找回密码的方式
+
+private:
+    Setting *mysetting;
+
+    void saveSetting();
+
+
 
 public:
     void showForgetPwdView();
     void showRegisterView();
-
-
+    //-------------------------
+private:
+    QString username;//用户的名字
+    QString userid;//用户的ID
+    QDateTime lastlogin;//上次登录时间
+    QString userphotopath;// 用户的图片
+    bool isremeber;//是否记住密码
+    QString pwd;//密码
+    //-------------------------
+public:
+    //set和get
+    QString getUsername() const;
+    void setUsername(const QString &value);
+    QString getUserid() const;
+    void setUserid(const QString &value);
+    QDateTime getLastlogin() const;
+    void setLastlogin(const QDateTime &value);
+    QString getUserphotopath() const;
+    void setUserphotopath(const QString &value);
+    bool getIsremeber() const;
+    void setIsremeber(bool value);
+    QString getPwd() const;
+    void setPwd(const QString &value);
 };
 
 
