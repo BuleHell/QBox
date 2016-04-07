@@ -26,7 +26,10 @@ SOURCES += main.cpp\
     dbhelp.cpp \
     setting.cpp \
     groupsetting.cpp \
-    tools.cpp
+    tools.cpp \
+    qmenubutton.cpp \
+    friendwindow.cpp \
+    talkwindow.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -38,12 +41,17 @@ HEADERS  += mainwindow.h \
     dbhelp.h \
     setting.h \
     groupsetting.h \
-    tools.h
+    tools.h \
+    qmenubutton.h \
+    friendwindow.h \
+    talkwindow.h
 
 FORMS    += mainwindow.ui \
     login.ui \
     register.ui \
-    forgetpassword.ui
+    forgetpassword.ui \
+    friendwindow.ui \
+    talkwindow.ui
 
 RESOURCES += \
     resource.qrc

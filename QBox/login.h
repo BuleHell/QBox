@@ -25,14 +25,24 @@ public:
     //得到类的对象
     explicit Login(QWidget *parent = 0);
     ~Login();
+private:
+    //在线状态初始化
+    void Status_init();
+    //头像初始化
+    void photo_init();
+
 protected:    
     //这两个函数用来保证可以移动
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     //使用事件监听器
     bool eventFilter(QObject *obj, QEvent *ev);
-private slots:
+signals:
+    //登录成功的信号
+    void LoginSuccessSIGNAL(QString userid,QString username,QString pthotoPath,QString status);
 
+private slots:
+    void Status_Changed();
     void on_btnLogin_clicked();
 
     void on_btnMin_clicked();
@@ -60,7 +70,9 @@ private:
     //忘记密码页面
     ForgetPassword *forgetpwdView;
     int forget_way;//找回密码的方式
-
+    //设置用户状态
+    QAction *action[6];
+    QString ImagesIcon[6];
 private:
     Setting *mysetting;
 
@@ -79,6 +91,7 @@ private:
     QString userphotopath;// 用户的图片
     bool isremeber;//是否记住密码
     QString pwd;//密码
+    QString status;//状态
     //-------------------------
 public:
     //set和get
@@ -94,6 +107,8 @@ public:
     void setIsremeber(bool value);
     QString getPwd() const;
     void setPwd(const QString &value);
+    QString getStatus() const;
+    void setStatus(const QString &value);
 };
 
 

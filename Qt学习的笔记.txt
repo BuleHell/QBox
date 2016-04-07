@@ -41,3 +41,6 @@ int main(int argc, char *argv[])
 
    QString msg = ui->textEdit->toHtml();
         QString time = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+
+
+记住：永远不要在没有new出新对象的时候，才进行connect

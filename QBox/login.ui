@@ -196,7 +196,7 @@ QWidget#widgetPassword {
     <rect>
      <x>150</x>
      <y>332</y>
-     <width>211</width>
+     <width>221</width>
      <height>41</height>
     </rect>
    </property>
@@ -220,7 +220,7 @@ QWidget#widgetPassword {
   <widget class="QLabel" name="labelRegist">
    <property name="geometry">
     <rect>
-     <x>389</x>
+     <x>405</x>
      <y>190</y>
      <width>61</width>
      <height>21</height>
@@ -233,7 +233,7 @@ QWidget#widgetPassword {
   <widget class="QLabel" name="labelForget">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>406</x>
      <y>249</y>
      <width>61</width>
      <height>20</height>
@@ -246,7 +246,7 @@ QWidget#widgetPassword {
   <widget class="QWidget" name="widgetPassword" native="true">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>166</x>
      <y>240</y>
      <width>211</width>
      <height>41</height>
@@ -255,7 +255,7 @@ QWidget#widgetPassword {
    <widget class="QLineEdit" name="lineEditPassword">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>56</x>
       <y>0</y>
       <width>171</width>
       <height>41</height>
@@ -274,7 +274,7 @@ QWidget#widgetPassword {
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>3</x>
+      <x>19</x>
       <y>5</y>
       <width>31</width>
       <height>31</height>
@@ -297,7 +297,7 @@ image: url(:/resource/image/login/resource/image/login/passwd.png);
   <widget class="QWidget" name="widgetUser" native="true">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>166</x>
      <y>180</y>
      <width>211</width>
      <height>41</height>
@@ -306,7 +306,7 @@ image: url(:/resource/image/login/resource/image/login/passwd.png);
    <widget class="QLabel" name="label1">
     <property name="geometry">
      <rect>
-      <x>3</x>
+      <x>19</x>
       <y>5</y>
       <width>31</width>
       <height>31</height>
@@ -327,7 +327,7 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
    <widget class="QLineEdit" name="lineEditUser">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>56</x>
       <y>0</y>
       <width>171</width>
       <height>41</height>
@@ -358,11 +358,52 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
      <enum>QLineEdit::Normal</enum>
     </property>
    </widget>
+   <widget class="QMenuButton" name="btnStatus">
+    <property name="geometry">
+     <rect>
+      <x>167</x>
+      <y>-2</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>2</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    border:none;
+}
+QPushButton:hover{
+    border:none;
+}
+QPushButton:pressed {
+
+    border:none;
+} </string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resource.qrc">
+      <normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>55</width>
+      <height>55</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QCheckBox" name="cbkAuto">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>166</x>
      <y>290</y>
      <width>111</width>
      <height>21</height>
@@ -394,7 +435,62 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="labelPhoto">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>121</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(255, 120, 31);
+border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border.svg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cbkAutoLogin">
+   <property name="geometry">
+    <rect>
+     <x>296</x>
+     <y>290</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>自动登录</string>
+   </property>
+  </widget>
+  <zorder>labelLogo</zorder>
+  <zorder>btnClose</zorder>
+  <zorder>btnLogin</zorder>
+  <zorder>btnMin</zorder>
+  <zorder>labelRegist</zorder>
+  <zorder>labelForget</zorder>
+  <zorder>widgetPassword</zorder>
+  <zorder>widgetUser</zorder>
+  <zorder>cbkAuto</zorder>
+  <zorder>Logo</zorder>
+  <zorder>cbkAutoLogin</zorder>
+  <zorder>labelPhoto</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QMenuButton</class>
+   <extends>QPushButton</extends>
+   <header location="global">qmenubutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="resource.qrc"/>
  </resources>

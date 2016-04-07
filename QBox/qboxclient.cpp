@@ -4,23 +4,31 @@
 QBoxClient::QBoxClient(QObject *parent):
     QObject(parent)
 {
+    friendwindow=new FriendWindow();
+    login=new Login();
+    //链接登录成功的
+    connect(login,SIGNAL(LoginSuccessSIGNAL(QString,QString,QString,QString)),this,SLOT(showFriendWindow(QString,QString,QString,QString)));
+    connect(this,SIGNAL(SLOT_LoginMessage(QString,QString,QString,QString)),friendwindow,SLOT(initSatus(QString,QString,QString,QString)));
 }
 
 QBoxClient::~QBoxClient()
 {
     delete login;
-    delete mainwindow;
+    delete friendwindow;
 }
 
 void QBoxClient::showLogin()
 {
-    login=new Login();
     login->show();
 }
 
-void QBoxClient::showMainWindow()
+void QBoxClient::showFriendWindow(QString userid, QString username, QString pthotoPath,QString status)
 {
-    login->setAttribute(Qt::WA_DeleteOnClose);
     login->close();
-    mainwindow=new MainWindow();
+    qDebug()<<"userid"<<userid
+           <<"username"<<username
+          <<"status"<<status
+          <<"pthotoPath"<<pthotoPath;
+    friendwindow->show();
+    emit SLOT_LoginMessage(userid,username,pthotoPath,status);
 }

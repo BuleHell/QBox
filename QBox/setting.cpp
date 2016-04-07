@@ -13,7 +13,7 @@ Setting::~Setting()
 }
 //构造之前，先加载
 Setting::Setting():
-    loaded(false),username(""),lastlogin(QDateTime::currentDateTime()),userid(""),userphotopath(""),isremeber(false),pwd("")
+    loaded(false),username(""),lastlogin(QDateTime::currentDateTime()),userid(""),userphotopath(""),isremeber(false),pwd(""),status("")
 {
     Load();
 }
@@ -48,6 +48,7 @@ void Setting::Load()
     this->isremeber=s.value("isremeber").toBool();
     this->userphotopath=s.value("userphotopath").toString();
     this->pwd=s.value("pwd").toString();
+    this->status=s.value("status").toString();
 //    qDebug() <<QObject::tr("Load完毕");
     s.endGroup();
     //    //保存组2-------------------------------------------------
@@ -90,6 +91,7 @@ void Setting::Save(QString path)
     s.setValue("isremeber",this->isremeber);
     s.setValue("userphotopath",this->userphotopath);
     s.setValue("pwd",this->pwd);
+    s.setValue("status",this->status);
     s.endGroup();
     //    //保存组2-------------------------------------------------
     //    s.beginGroup("General");
@@ -120,6 +122,16 @@ QString Setting::getSettingsDirPath()
     //    return QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + '/' + "QBox" + '/';
     //#endif
 }
+QString Setting::getStatus() const
+{
+    return status;
+}
+
+void Setting::setStatus(const QString &value)
+{
+    status = value;
+}
+
 QString Setting::getPwd() const
 {
     return pwd;
