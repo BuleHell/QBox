@@ -7,18 +7,18 @@
     <x>0</x>
     <y>0</y>
     <width>279</width>
-    <height>496</height>
+    <height>569</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>279</width>
+    <width>0</width>
     <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>279</width>
+    <width>16777215</width>
     <height>16777215</height>
    </size>
   </property>
@@ -33,67 +33,49 @@
     <number>0</number>
    </property>
    <item row="0" column="0">
-    <widget class="QWidget" name="widgetLeft" native="true">
+    <widget class="QWidget" name="widgetMystatus" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>100</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>279</width>
-       <height>16777215</height>
+       <height>100</height>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <widget class="QWidget" name="widgetMystatus" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/*全局设置*/
+      <string notr="true">/*全局设置*/
 * {	font-family: &quot;微软雅黑&quot;; font-size: 15px;}</string>
-        </property>
-        <widget class="QMenuButton" name="btnChange">
-         <property name="geometry">
-          <rect>
-           <x>78</x>
-           <y>77</y>
-           <width>31</width>
-           <height>21</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>2</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="layoutDirection">
-          <enum>Qt::LeftToRight</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
+     </property>
+     <widget class="QMenuButton" name="btnChange">
+      <property name="geometry">
+       <rect>
+        <x>78</x>
+        <y>77</y>
+        <width>31</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>2</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
     border:none;
 }
 QPushButton:hover{
@@ -103,56 +85,56 @@ QPushButton:pressed {
 
     border:none;
 } </string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="resource.qrc">
-           <normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="btnClose">
-         <property name="geometry">
-          <rect>
-           <x>255</x>
-           <y>0</y>
-           <width>25</width>
-           <height>25</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>25</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>20</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">/*关闭按钮*/
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnClose">
+      <property name="geometry">
+       <rect>
+        <x>255</x>
+        <y>0</y>
+        <width>25</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>20</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/*关闭按钮*/
 QPushButton#btnClose {
 	background: transparent;
 	border: none;
@@ -162,213 +144,223 @@ QPushButton#btnClose {
 QPushButton#btnClose:hover {
 	background: red;
 }</string>
-         </property>
-         <property name="text">
-          <string>X</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
-        </widget>
-        <widget class="QLabel" name="labelPic">
-         <property name="geometry">
-          <rect>
-           <x>3</x>
-           <y>2</y>
-           <width>103</width>
-           <height>98</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border-color: rgb(255, 120, 31);
+      </property>
+      <property name="text">
+       <string>X</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>16</width>
+        <height>16</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelPic">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>2</y>
+        <width>103</width>
+        <height>98</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(255, 120, 31);
 border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border.svg);</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
-         </property>
-        </widget>
-        <widget class="QLabel" name="labelName">
-         <property name="geometry">
-          <rect>
-           <x>116</x>
-           <y>7</y>
-           <width>91</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ff0000;&quot;&gt;瓜不甜&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-        <widget class="QLabel" name="lblstatus">
-         <property name="geometry">
-          <rect>
-           <x>113</x>
-           <y>45</y>
-           <width>45</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>状态：</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="labelstatus">
-         <property name="geometry">
-          <rect>
-           <x>160</x>
-           <y>45</y>
-           <width>30</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>在线</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="labelJob">
-         <property name="geometry">
-          <rect>
-           <x>114</x>
-           <y>72</y>
-           <width>144</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#55aa00;&quot;&gt;Java软件开发工程师&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-        <zorder>lblstatus</zorder>
-        <zorder>labelstatus</zorder>
-        <zorder>labelJob</zorder>
-        <zorder>labelPic</zorder>
-        <zorder>labelName</zorder>
-        <zorder>btnClose</zorder>
-        <zorder>btnChange</zorder>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QLabel" name="UserPS_label">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel#UserPS_label{
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelName">
+      <property name="geometry">
+       <rect>
+        <x>116</x>
+        <y>7</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ff0000;&quot;&gt;瓜不甜&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblstatus">
+      <property name="geometry">
+       <rect>
+        <x>113</x>
+        <y>45</y>
+        <width>45</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>状态：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelstatus">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>45</y>
+        <width>30</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>在线</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelJob">
+      <property name="geometry">
+       <rect>
+        <x>114</x>
+        <y>72</y>
+        <width>144</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#55aa00;&quot;&gt;Java软件开发工程师&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <zorder>lblstatus</zorder>
+     <zorder>labelstatus</zorder>
+     <zorder>labelJob</zorder>
+     <zorder>labelPic</zorder>
+     <zorder>labelName</zorder>
+     <zorder>btnClose</zorder>
+     <zorder>btnChange</zorder>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="UserPS_label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>279</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel#UserPS_label{
 	border-color: rgb(0, 170, 255);
     border: 2px groove gray;
     background-color: rgba(255, 193, 245, 0%);
 }</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QWidget" name="research" native="true">
+     <property name="maximumSize">
+      <size>
+       <width>279</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>279</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget#research{
+	background-color: rgb(247, 215, 255);
+
+}</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_7">
+      <property name="leftMargin">
+       <number>4</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>4</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="HL2">
+        <property name="topMargin">
+         <number>1</number>
+        </property>
+        <property name="rightMargin">
+         <number>2</number>
+        </property>
+        <property name="bottomMargin">
+         <number>1</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">* {	 font-size: 12px;}</string>
           </property>
           <property name="text">
-           <string/>
+           <string>搜索好友：</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="research" native="true">
-          <property name="styleSheet">
-           <string notr="true">QWidget#research{
-	background-color: rgb(247, 215, 255);
-
-}</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_7">
-           <property name="leftMargin">
-            <number>4</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>4</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>2</number>
-           </property>
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="HL2">
-             <property name="topMargin">
-              <number>1</number>
-             </property>
-             <property name="rightMargin">
-              <number>2</number>
-             </property>
-             <property name="bottomMargin">
-              <number>1</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="label">
-               <property name="styleSheet">
-                <string notr="true">* {	 font-size: 12px;}</string>
-               </property>
-               <property name="text">
-                <string>搜索好友：</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEdit"/>
-             </item>
-            </layout>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="btnSearch">
-             <property name="styleSheet">
-              <string notr="true">QPushButton#btnSearch {
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="btnSearch">
+        <property name="styleSheet">
+         <string notr="true">QPushButton#btnSearch {
 	background: transparent;
 	border: none;
 	color: #ffffff;
@@ -379,43 +371,43 @@ QPushButton#btnSearch:hover {
 }
 
 </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset resource="resource.qrc">
-               <normaloff>:/resource/image/friendwindow/resource/image/friendwindow/search.png</normaloff>
-               <normalon>:/resource/image/friendwindow/resource/image/friendwindow/search_over.png</normalon>
-               <activeon>:/resource/image/friendwindow/resource/image/friendwindow/search_over.png</activeon>:/resource/image/friendwindow/resource/image/friendwindow/search.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QTabWidget" name="FriendList_tabWidget">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>279</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="contextMenuPolicy">
-           <enum>Qt::DefaultContextMenu</enum>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QTabWidget::pane { /* The tab widget frame */
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/resource/image/friendwindow/resource/image/friendwindow/search.png</normaloff>
+          <normalon>:/resource/image/friendwindow/resource/image/friendwindow/search_over.png</normalon>
+          <activeon>:/resource/image/friendwindow/resource/image/friendwindow/search_over.png</activeon>:/resource/image/friendwindow/resource/image/friendwindow/search.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QTabWidget" name="FriendList_tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabWidget::pane { /* The tab widget frame */
     border-top: none;
 	background-color: rgb(255, 255, 255);
 }
@@ -459,170 +451,143 @@ QTabBar::tab:!selected {
 }
 
                             </string>
-          </property>
-          <property name="tabPosition">
-           <enum>QTabWidget::North</enum>
-          </property>
-          <property name="tabShape">
-           <enum>QTabWidget::Rounded</enum>
-          </property>
-          <property name="currentIndex">
-           <number>1</number>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>52</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="elideMode">
-           <enum>Qt::ElideNone</enum>
-          </property>
-          <property name="documentMode">
-           <bool>false</bool>
-          </property>
-          <property name="tabsClosable">
-           <bool>false</bool>
-          </property>
-          <property name="movable">
-           <bool>false</bool>
-          </property>
-          <widget class="QWidget" name="Near_tab">
-           <attribute name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</normaloff>
-             <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</iconset>
-           </attribute>
-           <attribute name="title">
-            <string>最近</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout">
-            <property name="margin">
-             <number>0</number>
-            </property>
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="QTreeView" name="treeView">
-              <property name="styleSheet">
-               <string notr="true">QTreeView {
-    show-decoration-selected: 1;
-	border:none;
-}
-
-QTreeView::item {
-     border: 1px solid #d9d9d9;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-}
-
-QTreeView::item:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e7effd, stop: 1 #cbdaf1);
-    border: 1px solid #bfcde4;
-}
-
-QTreeView::item:selected {
-    border: 1px solid #567dbc;
-}
-
-QTreeView::item:selected:active{
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6ea1f1, stop: 1 #567dbc);
-}
-
-QTreeView::item:selected:!active {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6b9be8, stop: 1 #577fbf);
-}</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="Groups_tab">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <attribute name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</normaloff>
-             <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</iconset>
-           </attribute>
-           <attribute name="title">
-            <string>群组</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="Friends_tab">
-           <attribute name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</normaloff>
-             <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</iconset>
-           </attribute>
-           <attribute name="title">
-            <string>好友</string>
-           </attribute>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="widgetTools" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QWidget#widgetTools
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>52</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="Near_tab">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>最近</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="Groups_tab">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>群组</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="Friends_tab">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>好友</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QWidget" name="widgetTools" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>279</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget#widgetTools
 {
 background-color: rgb(255, 130, 21);
 
 }
 </string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="Tools">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout_5">
-           <property name="margin">
-            <number>0</number>
-           </property>
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="Tools">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <item>
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnAdd">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*关闭按钮*/
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAdd">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
 QPushButton#btnAdd {
 	background: transparent;
 	border: none;
@@ -632,39 +597,39 @@ QPushButton#btnAdd {
 QPushButton#btnAdd:hover {
 	background: #00ff89;
 }</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="resource.qrc">
-                 <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnGroup">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*关闭按钮*/
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGroup">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
 QPushButton#btnGroup{
 	background: transparent;
 	border: none;
@@ -674,39 +639,39 @@ QPushButton#btnGroup{
 QPushButton#btnGroup:hover {
 	background: #00ff89;
 }</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="resource.qrc">
-                 <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_3">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnSeting">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*关闭按钮*/
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSeting">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
 QPushButton#btnSeting{
 	background: transparent;
 	border: none;
@@ -716,39 +681,39 @@ QPushButton#btnSeting{
 QPushButton#btnSeting:hover {
 		background: #00ff89;
 }</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="resource.qrc">
-                 <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnFTP">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">/*关闭按钮*/
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnFTP">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
 QPushButton#btnFTP{
 	background: transparent;
 	border: none;
@@ -758,33 +723,28 @@ QPushButton#btnFTP{
 QPushButton#btnFTP:hover {
 		background: #00ff89;
 }</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset resource="resource.qrc">
-                 <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</iconset>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-          </layout>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</iconset>
+          </property>
          </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </item>

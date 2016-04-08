@@ -9,6 +9,8 @@
 #include"register.h"
 #include"forgetpassword.h"
 #include"setting.h"
+#include"dbhelp.h"
+#include"groupsetting.h"
 /*
  *这个文件的作用是处理登陆的逻辑
  *登录的界面在ui中设置，使用完全的MVC模式进行编码
@@ -74,7 +76,11 @@ private:
     QAction *action[6];
     QString ImagesIcon[6];
 private:
-    Setting *mysetting;
+    Setting *mysetting; //我的配置设置
+    DBHelp *myDB;//我的数据库
+    GroupSetting *myXML;//我的XML保存
+
+
 
     void saveSetting();
 

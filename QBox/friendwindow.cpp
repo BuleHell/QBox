@@ -8,34 +8,37 @@ FriendWindow::FriendWindow(QWidget *parent) :
     userid(""),username(""),pthotoPath(""),status(""),job("")
 {
     ui->setupUi(this);
-    this->resize(279,600);
+//    this->resize(279,600);
     Tools::FormInCenter(this);
     Tools::FormNotResize(this);
     setWindowFlags(Qt::FramelessWindowHint);
+    myDB=DBHelp::getInstance();
+    myDB->LinkDatabase();
+    myXML=GroupSetting::getInstance();
+    connect(myDB,SIGNAL(SLOT_showUserList(QString,QString,quint8,QString,QString,quint8)),this,SLOT(insertFriendItem(QString,QString,quint8,QString,QString,quint8)));
+
     //setAttribute(Qt::WA_TranslucentBackground);//透明底部
     //初始化在线状态
     Status_init();
     //初始化面板
     UpdatePanel();
+    //初始化，建立一个单例模式，聊天面板
 
+    //好友的列表里设置当前的组和列表
+    FriendListPanel=new QWidget();
+    gridlayout_FriendList = new QGridLayout(ui->Friends_tab);
+    FriendListscrollArea=new QScrollArea(ui->Friends_tab);
 
-
+    myDB->showUserList();
+    //   FriendListPanel->show();
+    initFriend_Tab();
+ //   FriendListscrollArea->setBackgroundRole(QPalette::Dark);
+    FriendListscrollArea->setWidget(FriendListPanel);
+    gridlayout_FriendList->addWidget(FriendListscrollArea);
+    gridlayout_FriendList->setSpacing(0);
+    gridlayout_FriendList->setContentsMargins(0,0,0,0);
 }
-
-//FriendWindow::FriendWindow(QWidget *parent, QString userid, QString username, QString pthotoPath, QString status):  QWidget(parent),
-//    ui(new Ui::FriendWindow)
-//{
-//    this->userid=userid;
-//    this->username=username;
-//    this->pthotoPath=pthotoPath;
-//    this->status=status;
-//    ui->setupUi(this);
-//    this->resize(279,600);
-//    Tools::FormInCenter(this);
-//    Tools::FormNotResize(this);
-//    setWindowFlags(Qt::FramelessWindowHint);
-//    InitPanel();
-//}
+//在好友tab里设置一些
 
 FriendWindow::~FriendWindow()
 {
@@ -53,9 +56,6 @@ void FriendWindow::UpdatePanel()
     {
         ui->labelPic->setPixmap(QPixmap(this->pthotoPath));
     }
-
-
-    //
     //这里使用设置来设置显示那个
     for(int i=0;i<6;i++)
     {
@@ -64,9 +64,7 @@ void FriendWindow::UpdatePanel()
             qDebug()<<"-----------------------------------";
             action[i]->setChecked(true);
             ui->btnChange->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
-//            ui->btnStatus->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
             qDebug()<<action[i]->text();
-//            this->setStatus(action[i]->text());
         }
 
     }
@@ -113,9 +111,7 @@ void FriendWindow::Status_init()
             qDebug()<<"-----------------------------------";
             action[i]->setChecked(true);
             ui->btnChange->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
-//            ui->btnStatus->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
             qDebug()<<action[i]->text();
-//            this->setStatus(action[i]->text());
         }
 
     }
@@ -124,6 +120,28 @@ void FriendWindow::Status_init()
 
 
 
+}
+
+void FriendWindow::initFriend_Tab()
+{
+
+    //    FriendListscrollArea->setBackgroundRole(QPalette::Dark);
+    //    FriendListscrollArea->setWidget(FriendListPanel);
+
+    //    FriendListPanel->show();
+    //    FriendListscrollArea->show();
+
+    //在好友tab里新建了一个QToolBox实现好友列表
+    //    friends_box = new QToolBox();
+    //    friends_box->setGeometry(10,10,260,250);
+    //    friends_box->setStyleSheet("QToolBox::tab {background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E1E1E1, stop: 0.4 #DDDDDD, stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);border-radius: 5px;color: darkgray; }QToolBox::tab:selected { /* italicize selected tabs */font: italic; color: white;}");
+    //新建一个布局管理器
+    //    scrollArea = new QScrollArea(ui->Friends_tab);
+    //    scrollArea->setBackgroundRole(QPalette::Dark);
+    //    scrollArea->setWidget(friends_box);
+    //     friends_box->show();
+    //     scrollArea->show();
+    myDB->showUserList();
 }
 
 
@@ -138,6 +156,22 @@ void FriendWindow::mousePressEvent(QMouseEvent *event)
     this->windowPos = this->pos();
     this->mousePos = event->globalPos();
     this->dPos = mousePos - windowPos;
+}
+
+void FriendWindow::insertFriendItem(QString id, QString name, quint8 status, QString photo, QString info, quint8 isfriend)
+{
+    static int j=0;
+    int w,h;
+    if(isfriend==1)//是朋友
+    {
+
+        FriendItem *frienditem = new FriendItem(this->FriendListPanel,0,j*70+2,id,name,status,photo,info);
+        j++;
+        w=frienditem->width();
+        h=frienditem->height();
+        this->FriendItemList.append(frienditem);
+    }
+   this->FriendListPanel->setFixedSize(w,(j)*h);
 }
 
 void FriendWindow::on_btnClose_clicked()
@@ -167,7 +201,7 @@ void FriendWindow::Status_Changed()
         {
             ui->btnChange->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
             qDebug()<<action[i]->text();
-//            this->setStatus(action[i]->text());
+            //            this->setStatus(action[i]->text());
             this->status=action[i]->text();
             qDebug()<<"现在是槽在处理";
             Setting::getInstance()->setStatus(action[i]->text());

@@ -20,6 +20,14 @@ Login::Login(QWidget *parent) :
     Tools::FormInCenter(this);
     //从setting中读出数据来填上
     mysetting=Setting::getInstance();
+    //数据库的东西
+    myDB=DBHelp::getInstance();
+    //-----------------------
+    myDB->LinkDatabase();
+    //-------------------
+    //XML里的东西
+    myXML=GroupSetting::getInstance();
+    myXML->createXML();
     //默认的值填上
     this->username=mysetting->getUsername();
     this->userid=mysetting->getUserid();
@@ -27,7 +35,7 @@ Login::Login(QWidget *parent) :
     this->isremeber=mysetting->getIsremeber();
     this->pwd=mysetting->getPwd();
     this->status=mysetting->getStatus();
-    qDebug()<<this->status;
+//    qDebug()<<this->status;
     //显示在Ui上
     this->ui->lineEditUser->setText(username);
     if(isremeber)
@@ -143,6 +151,8 @@ Login::~Login()
 {
     qDebug()<<"Lgin析构函数";
     delete mysetting;
+    delete myDB;
+    delete myXML;
     delete ui;
     delete registerView;
     delete forgetpwdView;
@@ -211,11 +221,12 @@ void Login::on_btnLogin_clicked()
     //写入数据
     //    a->writeData(QString("1232").toAscii());
 
-
+   //查询出用户ID出来，填在这里
 
     qDebug()<<"你点击了登录按钮";
     //qDebug()<<a->ReadData();
     //保存设置记录:先保存在本类的记录上，如果正确的话，就存入ini文件中
+
     //假设登录成功
     this->LoginSuccess();
 
@@ -253,9 +264,9 @@ void Login::registeredInfo(QString name, QString password, QString eamil, QStrin
     this->show();
     qDebug()<<"-----------注册的消息-------------";
     qDebug()<<"name:"<<name
-           <<"password:"<<password
-          <<"eamil:"<<eamil
-         <<"phone:"<<phone;
+            <<"password:"<<password
+           <<"eamil:"<<eamil
+           <<"phone:"<<phone;
 }
 
 void Login::registeredBack()
@@ -279,7 +290,6 @@ void Login::LoginSuccess()
     {
         this->setPwd("");
     }
-//    this->setUserphotopath("没有照片");
     //登录成功后:有一系列的动作的
     //1.保存设置:或者否
     this->saveSetting();

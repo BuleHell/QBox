@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     tools.cpp \
     qmenubutton.cpp \
     friendwindow.cpp \
-    talkwindow.cpp
+    talkwindow.cpp \
+    frienditem.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -44,7 +45,8 @@ HEADERS  += mainwindow.h \
     tools.h \
     qmenubutton.h \
     friendwindow.h \
-    talkwindow.h
+    talkwindow.h \
+    frienditem.h
 
 FORMS    += mainwindow.ui \
     login.ui \

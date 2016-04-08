@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("utf-8"));
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf-8"));
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("utf-8"));
-    //------------------------------------------------------------------
+    //----------------------------------------------------------------
     //我的客户端
     QBoxClient myQBox;
     //登录界面:一切都从登录开始

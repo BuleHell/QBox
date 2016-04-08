@@ -27,7 +27,6 @@ public slots:
 private:
     //所有可以操作的对象都在这里；
     Login *login;
-//    MainWindow *mainwindow;
     FriendWindow *friendwindow;
 
 };
