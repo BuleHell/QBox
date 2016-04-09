@@ -4,6 +4,14 @@
 #include <QObject>
 #include<QDataStream>
 #include<QtGui>
+//QMap<int,QString> Status;
+//Status[0]="离开";
+
+
+
+
+
+
 //MyQBox协议
 ////协议头
 ////----------------------------------

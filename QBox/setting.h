@@ -54,6 +54,7 @@ private:
     QString userphotopath;// 用户的图片
     bool isremeber;//是否记住密码
     QString pwd;//密码
+    QString status;//状态
     //////////////////////////////////////////////////////////////
     //相应的设置加载的函数
 public:
@@ -70,6 +71,8 @@ public:
     void setUserphotopath(const QString &value);
     QString getPwd() const;
     void setPwd(const QString &value);
+    QString getStatus() const;
+    void setStatus(const QString &value);
 };
 
 #endif // SETTING_H

@@ -17,10 +17,7 @@ signals:
 public slots:
 
 private:
-//    // 读入流
-//    QByteArray *blockin;
-//    //读出流
-//    QByteArray *blockout;
+
 };
 
 #endif // NETWORK_H

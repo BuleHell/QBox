@@ -7,6 +7,27 @@
         <file>resource/image/login/password2.png</file>
         <file>resource/image/login/phone.png</file>
         <file>resource/image/login/Triangle.png</file>
+        <file>resource/image/mainwindow/ui/svg/friendList_select.svg</file>
+        <file>resource/image/mainwindow/ui/svg/friendList_unselect.svg</file>
+        <file>resource/image/mainwindow/ui/svg/groupList_select.svg</file>
+        <file>resource/image/mainwindow/ui/svg/groupList_unselect.svg</file>
+        <file>resource/image/mainwindow/ui/svg/recentList_select.svg</file>
+        <file>resource/image/mainwindow/ui/svg/recentList_unselect.svg</file>
+        <file>resource/image/login/svg/avatar-border.svg</file>
+        <file>resource/image/login/avatar.png</file>
+        <file>resource/image/login/svg/status-away-1.svg</file>
+        <file>resource/image/login/svg/status-busy-1.svg</file>
+        <file>resource/image/login/svg/status-callme-1.svg</file>
+        <file>resource/image/login/svg/status-hidden-1.svg</file>
+        <file>resource/image/login/svg/status-online-1.svg</file>
+        <file>resource/image/login/svg/status-silent-1.svg</file>
+        <file>resource/image/login/status/imaway.png</file>
+        <file>resource/image/login/status/imbusy.png</file>
+        <file>resource/image/login/status/imcallme.png</file>
+        <file>resource/image/login/status/imhidden.png</file>
+        <file>resource/image/login/status/imoffline.png</file>
+        <file>resource/image/login/status/imonline.png</file>
+        <file>resource/image/login/status/imsilent.png</file>
     </qresource>
     <qresource prefix="/resource/image/mianwindows/ui">
         <file>resource/image/mainwindow/ui/add.png</file>
@@ -17,5 +38,15 @@
         <file>resource/image/mainwindow/ui/icon.png</file>
         <file>resource/image/mainwindow/ui/settings.png</file>
         <file>resource/image/mainwindow/ui/transfer.png</file>
+    </qresource>
+    <qresource prefix="/resource/image/friendwindow">
+        <file>resource/image/friendwindow/search.png</file>
+        <file>resource/image/friendwindow/search_over.png</file>
+    </qresource>
+    <qresource prefix="/resource/image/talkwindow">
+        <file>resource/image/talkwindow/tools/sendButton.png</file>
+        <file>resource/image/talkwindow/tools/sendButtonHover.png</file>
+        <file>resource/image/talkwindow/tools/sendButtonPressed.png</file>
+        <file>resource/image/talkwindow/tools/face.png</file>
     </qresource>
 </RCC>

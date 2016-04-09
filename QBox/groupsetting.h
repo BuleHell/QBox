@@ -7,9 +7,6 @@
  * @brief The GroupSetting class 不用显式delete，只需要用即可，因为本文件是用时打开，不用就马上关闭的
  *一个文件
  */
-
-
-
 class GroupSetting : public QObject
 {
     Q_OBJECT
