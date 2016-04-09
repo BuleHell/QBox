@@ -43,4 +43,10 @@
         <file>resource/image/friendwindow/search.png</file>
         <file>resource/image/friendwindow/search_over.png</file>
     </qresource>
+    <qresource prefix="/resource/image/talkwindow">
+        <file>resource/image/talkwindow/tools/sendButton.png</file>
+        <file>resource/image/talkwindow/tools/sendButtonHover.png</file>
+        <file>resource/image/talkwindow/tools/sendButtonPressed.png</file>
+        <file>resource/image/talkwindow/tools/face.png</file>
+    </qresource>
 </RCC>

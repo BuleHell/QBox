@@ -14,7 +14,10 @@ class FriendItem : public QWidget
 public:
     explicit FriendItem(QWidget *parent = 0);
     FriendItem(QWidget *parent,int x,int y,QString id, QString name, quint8 status, QString photo, QString info);
+    ~FriendItem();
+
 public:
+    //用来记录这个页面上的东西
     QLabel *Avatar;
     QLabel *Status;
     QLabel *Name;
@@ -22,11 +25,13 @@ public:
     QGroupBox *groupbox;
     QPixmap avatar_images;
 private:
+    //实际的数据
     QString userid;
     QString name;
     quint8 status;
     QString photo;
     QString info;
+
 signals:
 
 public slots:
@@ -34,9 +39,9 @@ public slots:
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 private:
-    void init(QString name, quint8 status, QString photo, QString info);
-    bool IsChatOpen;
-    //    ChatView *w;
+    void init();
+    //会话的窗口
+    TalkWindow* talk;
 
 };
 

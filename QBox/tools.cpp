@@ -21,3 +21,43 @@ void Tools::FormNotResize(QWidget *frm)
 {
     frm->setFixedSize(frm->width(),frm->height());
 }
+
+QString Tools::getStatus(int i)
+{
+    switch(i)
+    {
+    case 0:
+    {
+        return "";
+
+    }
+    case 1:
+    {
+        return "在线";
+
+    }
+    case 2:
+    {
+        return "";
+
+    }
+    case 3:
+    {
+        return "";
+
+    }
+    case 4:
+    {
+        return "";
+
+    }
+    case 5:
+    {
+        return "";
+
+    }
+    default:
+        return "ERROR";
+
+    }
+}

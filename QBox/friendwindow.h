@@ -39,6 +39,14 @@ private slots:
     void on_btnClose_clicked();
     void initSatus(QString userid, QString username, QString pthotoPath,QString status);
     void Status_Changed();
+    void on_btnAdd_clicked();
+
+    void on_btnGroup_clicked();
+
+    void on_btnSeting_clicked();
+
+    void on_btnFTP_clicked();
+
 private:
     Ui::FriendWindow *ui;
     //这三个点：记录移动的事件

@@ -177,6 +177,7 @@ void FriendWindow::insertFriendItem(QString id, QString name, quint8 status, QSt
 void FriendWindow::on_btnClose_clicked()
 {
     this->close();
+
 }
 //槽来初始化数据
 void FriendWindow::initSatus(QString userid, QString username, QString pthotoPath, QString status)
@@ -209,4 +210,26 @@ void FriendWindow::Status_Changed()
             break;
         }
     }
+}
+
+void FriendWindow::on_btnAdd_clicked()
+{
+    qDebug()<<"你点击了添加朋友的按钮！";
+}
+
+void FriendWindow::on_btnGroup_clicked()
+{
+    qDebug()<<"你点击了添加群组的按钮！";
+}
+
+void FriendWindow::on_btnSeting_clicked()
+{
+    qDebug()<<"你点击了设置的按钮！";
+
+}
+
+void FriendWindow::on_btnFTP_clicked()
+{
+    qDebug()<<"你点击了上传下载的按钮！";
+
 }

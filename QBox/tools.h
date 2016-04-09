@@ -12,6 +12,8 @@ public:
     static void FormInCenter(QWidget *frm);
     //大小固定
     static void FormNotResize(QWidget *frm);
+    //由数字获得状态
+    static QString getStatus(int i);
 signals:
     
 public slots:
