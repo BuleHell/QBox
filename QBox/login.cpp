@@ -35,7 +35,7 @@ Login::Login(QWidget *parent) :
     this->isremeber=mysetting->getIsremeber();
     this->pwd=mysetting->getPwd();
     this->status=mysetting->getStatus();
-//    qDebug()<<this->status;
+    //    qDebug()<<this->status;
     //显示在Ui上
     this->ui->lineEditUser->setText(username);
     if(isremeber)
@@ -216,12 +216,11 @@ bool Login::eventFilter(QObject *obj, QEvent *ev)
 void Login::on_btnLogin_clicked()
 {
     //网络部分先暂停下
-    //    NetWork * a=NetWork::getInstance();
-    //    a->initSocket();
+    NetWork * a=NetWork::getInstance();
+    a->initSocket("127.0.0.1",8989);
     //写入数据
-    //    a->writeData(QString("1232").toAscii());
 
-   //查询出用户ID出来，填在这里
+    //查询出用户ID出来，填在这里
 
     qDebug()<<"你点击了登录按钮";
     //qDebug()<<a->ReadData();
@@ -264,9 +263,9 @@ void Login::registeredInfo(QString name, QString password, QString eamil, QStrin
     this->show();
     qDebug()<<"-----------注册的消息-------------";
     qDebug()<<"name:"<<name
-            <<"password:"<<password
-           <<"eamil:"<<eamil
-           <<"phone:"<<phone;
+           <<"password:"<<password
+          <<"eamil:"<<eamil
+         <<"phone:"<<phone;
 }
 
 void Login::registeredBack()

@@ -11,11 +11,11 @@ NetWork::~NetWork()
     qDebug()<<QObject::tr("客户端的Net析构函数被调用");
 }
 
-void NetWork::initSocket()
+void NetWork::initSocket(QString ip,int port)
 {
     tcpClient=new QTcpSocket(this);//创建一个套接字
     tcpClient->abort();//取消原有连接
-    this->TCPToHost(QHostAddress("127.0.0.1"),12345);//测试服务器
+    this->TCPToHost(QHostAddress(ip),port);//测试服务器
     //链接读数据
     connect(tcpClient,SIGNAL(readyRead()),this,SLOT(ReadData()));
     //链接错误时的数据
@@ -32,6 +32,7 @@ void NetWork::ReadError(QAbstractSocket::SocketError)
 
 QByteArray NetWork::ReadData()
 {
+    qDebug()<<QString(tcpClient->readAll());
     return tcpClient->readAll();
 
 }
@@ -92,6 +93,16 @@ bool NetWork::TCPoffHost()
     qDebug()<<QObject::tr("断开服务器失败");
     return false;
 }
+QString NetWork::getTcpIP() const
+{
+    return tcpIP;
+}
+
+void NetWork::setTcpIP(const QString &value)
+{
+    tcpIP = value;
+}
+
 
 
 

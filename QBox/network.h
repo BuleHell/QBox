@@ -27,7 +27,7 @@ public:
     ~NetWork();
 
 
-    void initSocket();//初始化套接字
+    void initSocket(QString ip, int port);//初始化套接字
     
 signals:
     //--------------------------------------------------
@@ -48,7 +48,11 @@ public:
 
     quint16 getBlockSize() const;
     void setBlockSize(const quint16 &value);
+    QString getTcpIP() const;
+    void setTcpIP(const QString &value);
     //----------------------------------------------------
+
+
 private:
     //连接
     bool TCPToHost(QHostAddress hostAddress,qint16 tcpPort);
@@ -60,6 +64,7 @@ private:
     QTcpSocket *tcpClient; //TCP客户端
     //----------------------------------
     QHostAddress hostAddress;
+    QString tcpIP;
     qint16 tcpPort;
     quint16 blockSize;
 };

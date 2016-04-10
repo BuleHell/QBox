@@ -290,7 +290,7 @@ image: url(:/resource/image/login/resource/image/login/passwd.png);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/passwd.png</pixmap>
+     <pixmap>:/resource/image/login/resource/image/login/passwd.png</pixmap>
     </property>
    </widget>
   </widget>
@@ -321,7 +321,7 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/person.png</pixmap>
+     <pixmap>:/resource/image/login/resource/image/login/person.png</pixmap>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditUser">
@@ -389,7 +389,7 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="icon">
-     <iconset resource="resource.qrc">
+     <iconset>
       <normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</iconset>
     </property>
     <property name="iconSize">
@@ -452,7 +452,7 @@ border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
+    <pixmap>:/resource/image/login/resource/image/login/avatar.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -466,6 +466,32 @@ border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border
      <width>111</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*记住密码复选框*/
+QCheckBox::indicator 
+{
+	width: 15px;
+ 	height: 15px;
+	margin-right:5px;
+}
+QCheckBox{
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+	color: rgb(46, 44, 45);
+}
+QCheckBox:hover {
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+	
+	color: rgb(0, 206, 0);
+}
+QCheckBox:checked {
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+	
+	color: rgb(0, 170, 127);
+}</string>
    </property>
    <property name="text">
     <string>自动登录</string>
@@ -491,8 +517,6 @@ border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border
    <header location="global">qmenubutton.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
