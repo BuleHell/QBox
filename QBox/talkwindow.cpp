@@ -77,6 +77,6 @@ void TalkWindow::on_btnSend_clicked()
 //        ui->MessageBrowser->setAlignment(Qt::AlignLeft);
 
 //    }
-        ui->MessageBrowser->append(message);
+    ui->MessageBrowser->append(message);
     ui->textEditMessage->clear();
 }

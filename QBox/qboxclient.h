@@ -2,7 +2,6 @@
 #define QBOXCLIENT_H
 
 #include <QObject>
-//#include "mainwindow.h"    //主界面
 #include"friendwindow.h"
 #include "login.h"         //登录界面
 #include"network.h"        //网络模块

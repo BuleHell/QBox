@@ -23,11 +23,34 @@ Login::Login(QWidget *parent) :
     //数据库的东西
     myDB=DBHelp::getInstance();
     //-----------------------
-    myDB->LinkDatabase();
+    //myDB->LinkDatabase();
+    //    qDebug()<<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+    //    //-------------------------
+    //    myDB->insert_ownMessage("this is my Message!!","81121115");
+    //    myDB->insert_ownMessage("你好啊!!","81121115");
+    //    myDB->insert_ownMessage("王八蛋!!","81121115");
+    //    myDB->insert_ownMessage("this is my Message!!","81121115");
+    //    myDB->insert_ownMessage("this is my Message!!","81121115");
+    //    myDB->insert_ownMessage("this is my Message!!","81121115");
+    //    myDB->insert_ownMessage("this is my Message!!","81121115");
+
     //-------------------
     //XML里的东西
     myXML=GroupSetting::getInstance();
     myXML->createXML();
+    //-------------------------------------
+//    QMap<QString, QString> user;
+//    user["21120335"]="徐锦涛";
+//    user["21120456"]="王瑞";
+//    user["32213432"]="张雁门关";
+//    myXML->update("001","星光","测试","81121115",user);
+//    myXML->update("002","星光","测试","81121115",user);
+//    myXML->update("003","星光","测试","81121115",user);
+//    myXML->update("004","星光","测试","81121115",user);
+//    myXML->update("005","星光","测试","81121115",user);
+//    myXML->update("006","星光","测试","81121115",user);
+//    myXML->update("007","星光","测试","81121115",user);
+    //--------------------------------------------
     //默认的值填上
     this->username=mysetting->getUsername();
     this->userid=mysetting->getUserid();

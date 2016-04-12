@@ -38,6 +38,7 @@
         <file>resource/image/mainwindow/ui/icon.png</file>
         <file>resource/image/mainwindow/ui/settings.png</file>
         <file>resource/image/mainwindow/ui/transfer.png</file>
+        <file>resource/image/friendwindow/new.png</file>
     </qresource>
     <qresource prefix="/resource/image/friendwindow">
         <file>resource/image/friendwindow/search.png</file>

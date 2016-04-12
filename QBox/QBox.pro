@@ -16,7 +16,6 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
     login.cpp \
     qboxclient.cpp \
     register.cpp \
@@ -30,9 +29,11 @@ SOURCES += main.cpp\
     qmenubutton.cpp \
     friendwindow.cpp \
     talkwindow.cpp \
-    frienditem.cpp
+    frienditem.cpp \
+    messageitem.cpp \
+    groupitem.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     login.h \
     qboxclient.h \
     register.h \
@@ -46,14 +47,18 @@ HEADERS  += mainwindow.h \
     qmenubutton.h \
     friendwindow.h \
     talkwindow.h \
-    frienditem.h
+    frienditem.h \
+    messageitem.h \
+    groupitem.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     login.ui \
     register.ui \
     forgetpassword.ui \
     friendwindow.ui \
-    talkwindow.ui
+    talkwindow.ui \
+    messageitem.ui \
+    groupitem.ui
 
 RESOURCES += \
     resource.qrc

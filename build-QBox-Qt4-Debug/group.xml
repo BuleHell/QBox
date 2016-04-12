@@ -1,2 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<groupconfig/>
+<?xml version='1.0' encoding='UTF-8'?>
+<groupconfig>
+    <group id="001">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="002">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="003">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="004">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="005">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="006">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+    <group id="007">
+        <name>星光</name>
+        <info>测试</info>
+        <admin id="81121115"/>
+        <user id="21120335">徐锦涛</user>
+        <user id="21120456">王瑞</user>
+        <user id="32213432">张雁门关</user>
+    </group>
+</groupconfig>

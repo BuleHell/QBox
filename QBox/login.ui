@@ -290,7 +290,7 @@ image: url(:/resource/image/login/resource/image/login/passwd.png);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>:/resource/image/login/resource/image/login/passwd.png</pixmap>
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/passwd.png</pixmap>
     </property>
    </widget>
   </widget>
@@ -321,7 +321,7 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>:/resource/image/login/resource/image/login/person.png</pixmap>
+     <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/person.png</pixmap>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditUser">
@@ -389,7 +389,7 @@ QPushButton:pressed {
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="resource.qrc">
       <normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</normaloff>:/resource/image/login/resource/image/login/svg/status-online-1.svg</iconset>
     </property>
     <property name="iconSize">
@@ -452,7 +452,7 @@ border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>:/resource/image/login/resource/image/login/avatar.png</pixmap>
+    <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -517,6 +517,8 @@ QCheckBox:checked {
    <header location="global">qmenubutton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -25,13 +25,408 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <property name="margin">
     <number>0</number>
    </property>
    <property name="spacing">
     <number>0</number>
    </property>
+   <item row="3" column="0">
+    <widget class="QTabWidget" name="FriendList_tabWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    border-top: none;
+	background-color: rgb(255, 255, 255);
+}
+
+QTabWidget::tab-bar {
+    left: 0px; /* move to the right by 5px */
+	
+}
+
+/* Style the tab using the tab sub-control. Note that
+    it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+
+ 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #EDEDED, stop: 0.4 #D0D0D0,
+                                stop: 0.5 #C8C8C8, stop: 1.0 #C3C3C3);
+text-align:center;
+	width:93px;
+	height:30px;
+   border: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    min-width: 8ex;
+    padding: 0px;
+}
+
+QTabBar::tab:hover {
+	 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #DDDDDD, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(255, 255, 255);
+   
+}
+
+QTabBar::tab:!selected {
+    margin-top: 0px; /* make non-selected tabs look smaller */
+}
+
+                            </string>
+     </property>
+     <property name="tabPosition">
+      <enum>QTabWidget::North</enum>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>52</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="documentMode">
+      <bool>false</bool>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <property name="movable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="Groups_tab">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>群组</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="Message_tab">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>消息</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="Friends_tab">
+      <attribute name="icon">
+       <iconset resource="resource.qrc">
+        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</normaloff>
+        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>好友</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="UserPS_label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>279</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel#UserPS_label{
+	border-color: rgb(0, 170, 255);
+    border: 2px groove gray;
+    background-color: rgba(255, 193, 245, 0%);
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QWidget" name="widgetTools" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>279</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>279</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget#widgetTools
+{
+background-color: rgb(255, 130, 21);
+
+}
+</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_5">
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="Tools">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAdd">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
+QPushButton#btnAdd {
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+}
+QPushButton#btnAdd:hover {
+	background: #00ff89;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnGroup">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
+QPushButton#btnGroup{
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+}
+QPushButton#btnGroup:hover {
+	background: #00ff89;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSeting">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
+QPushButton#btnSeting{
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+}
+QPushButton#btnSeting:hover {
+		background: #00ff89;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnFTP">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/*关闭按钮*/
+QPushButton#btnFTP{
+	background: transparent;
+	border: none;
+	color: #ffffff;
+	font-size: 18px;
+}
+QPushButton#btnFTP:hover {
+		background: #00ff89;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="0" column="0">
     <widget class="QWidget" name="widgetMystatus" native="true">
      <property name="sizePolicy">
@@ -257,44 +652,6 @@ border-image:  url(:/resource/image/login/resource/image/login/svg/avatar-border
      <zorder>btnChange</zorder>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="UserPS_label">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>279</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>279</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel#UserPS_label{
-	border-color: rgb(0, 170, 255);
-    border: 2px groove gray;
-    background-color: rgba(255, 193, 245, 0%);
-}</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="lineWidth">
-      <number>0</number>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
    <item row="2" column="0">
     <widget class="QWidget" name="research" native="true">
      <property name="maximumSize">
@@ -382,371 +739,6 @@ QPushButton#btnSearch:hover {
           <activeon>:/resource/image/friendwindow/resource/image/friendwindow/search_over.png</activeon>:/resource/image/friendwindow/resource/image/friendwindow/search.png</iconset>
         </property>
        </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QTabWidget" name="FriendList_tabWidget">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>279</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="contextMenuPolicy">
-      <enum>Qt::DefaultContextMenu</enum>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTabWidget::pane { /* The tab widget frame */
-    border-top: none;
-	background-color: rgb(255, 255, 255);
-}
-
-QTabWidget::tab-bar {
-    left: 0px; /* move to the right by 5px */
-	
-}
-
-/* Style the tab using the tab sub-control. Note that
-    it reads QTabBar _not_ QTabWidget */
-QTabBar::tab {
-
- 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #EDEDED, stop: 0.4 #D0D0D0,
-                                stop: 0.5 #C8C8C8, stop: 1.0 #C3C3C3);
-text-align:center;
-	width:93px;
-	height:30px;
-   border: none;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    min-width: 8ex;
-    padding: 0px;
-}
-
-QTabBar::tab:hover {
-	 	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #DDDDDD, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    
-}
-
-QTabBar::tab:selected {
-	background-color: rgb(255, 255, 255);
-   
-}
-
-QTabBar::tab:!selected {
-    margin-top: 0px; /* make non-selected tabs look smaller */
-}
-
-                            </string>
-     </property>
-     <property name="tabPosition">
-      <enum>QTabWidget::North</enum>
-     </property>
-     <property name="tabShape">
-      <enum>QTabWidget::Rounded</enum>
-     </property>
-     <property name="currentIndex">
-      <number>1</number>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>52</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="elideMode">
-      <enum>Qt::ElideNone</enum>
-     </property>
-     <property name="documentMode">
-      <bool>false</bool>
-     </property>
-     <property name="tabsClosable">
-      <bool>false</bool>
-     </property>
-     <property name="movable">
-      <bool>false</bool>
-     </property>
-     <widget class="QWidget" name="Near_tab">
-      <attribute name="icon">
-       <iconset resource="resource.qrc">
-        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</normaloff>
-        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/recentList_unselect.svg</iconset>
-      </attribute>
-      <attribute name="title">
-       <string>最近</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="margin">
-        <number>0</number>
-       </property>
-       <property name="spacing">
-        <number>0</number>
-       </property>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="Groups_tab">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <attribute name="icon">
-       <iconset resource="resource.qrc">
-        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</normaloff>
-        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/groupList_unselect.svg</iconset>
-      </attribute>
-      <attribute name="title">
-       <string>群组</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="Friends_tab">
-      <attribute name="icon">
-       <iconset resource="resource.qrc">
-        <normaloff>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</normaloff>
-        <normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_select.svg</normalon>:/resource/image/login/resource/image/mainwindow/ui/svg/friendList_unselect.svg</iconset>
-      </attribute>
-      <attribute name="title">
-       <string>好友</string>
-      </attribute>
-     </widget>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QWidget" name="widgetTools" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>279</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>279</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QWidget#widgetTools
-{
-background-color: rgb(255, 130, 21);
-
-}
-</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_5">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="Tools">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnAdd">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*关闭按钮*/
-QPushButton#btnAdd {
-	background: transparent;
-	border: none;
-	color: #ffffff;
-	font-size: 18px;
-}
-QPushButton#btnAdd:hover {
-	background: #00ff89;
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="resource.qrc">
-            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/add.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnGroup">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*关闭按钮*/
-QPushButton#btnGroup{
-	background: transparent;
-	border: none;
-	color: #ffffff;
-	font-size: 18px;
-}
-QPushButton#btnGroup:hover {
-	background: #00ff89;
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="resource.qrc">
-            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/group.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnSeting">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*关闭按钮*/
-QPushButton#btnSeting{
-	background: transparent;
-	border: none;
-	color: #ffffff;
-	font-size: 18px;
-}
-QPushButton#btnSeting:hover {
-		background: #00ff89;
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="resource.qrc">
-            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/settings.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnFTP">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">/*关闭按钮*/
-QPushButton#btnFTP{
-	background: transparent;
-	border: none;
-	color: #ffffff;
-	font-size: 18px;
-}
-QPushButton#btnFTP:hover {
-		background: #00ff89;
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="resource.qrc">
-            <normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</normaloff>:/resource/image/mianwindows/ui/resource/image/mainwindow/ui/transfer.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
       </item>
      </layout>
     </widget>

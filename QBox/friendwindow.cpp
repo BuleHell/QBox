@@ -8,7 +8,7 @@ FriendWindow::FriendWindow(QWidget *parent) :
     userid(""),username(""),pthotoPath(""),status(""),job("")
 {
     ui->setupUi(this);
-//    this->resize(279,600);
+    //    this->resize(279,600);
     Tools::FormInCenter(this);
     Tools::FormNotResize(this);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -16,7 +16,9 @@ FriendWindow::FriendWindow(QWidget *parent) :
     myDB->LinkDatabase();
     myXML=GroupSetting::getInstance();
     connect(myDB,SIGNAL(SLOT_showUserList(QString,QString,quint8,QString,QString,quint8)),this,SLOT(insertFriendItem(QString,QString,quint8,QString,QString,quint8)));
+    connect(myDB,SIGNAL(SLOT_showOwnMessage(QDateTime,QString,QString)),this,SLOT(updateMessagePanel(QDateTime,QString,QString)));
 
+    connect(myXML,SIGNAL(SLOT_GroupInfo(QString,QString,QString,QString,QMap<QString,QString>)),this,SLOT(updateGroupPanel(QString,QString,QString,QString,QMap<QString,QString>)));
     //setAttribute(Qt::WA_TranslucentBackground);//透明底部
     //初始化在线状态
     Status_init();
@@ -28,15 +30,45 @@ FriendWindow::FriendWindow(QWidget *parent) :
     FriendListPanel=new QWidget();
     gridlayout_FriendList = new QGridLayout(ui->Friends_tab);
     FriendListscrollArea=new QScrollArea(ui->Friends_tab);
-
     myDB->showUserList();
-    //   FriendListPanel->show();
     initFriend_Tab();
- //   FriendListscrollArea->setBackgroundRole(QPalette::Dark);
     FriendListscrollArea->setWidget(FriendListPanel);
     gridlayout_FriendList->addWidget(FriendListscrollArea);
     gridlayout_FriendList->setSpacing(0);
     gridlayout_FriendList->setContentsMargins(0,0,0,0);
+
+
+    //初始化消息列表里的东西-------------------------------------------------------
+    MessageListPanel=new QWidget();
+    gridlayout_MessageList = new QGridLayout(ui->Message_tab);
+    MessageListscrollArea=new QScrollArea(ui->Message_tab);
+    //加载数据
+
+    //消息列表初始化
+    initMessage_Tab();
+    MessageListscrollArea->setWidget(MessageListPanel);
+    gridlayout_MessageList->addWidget(MessageListscrollArea);
+    gridlayout_MessageList->setSpacing(0);
+    gridlayout_MessageList->setContentsMargins(0,0,0,0);
+
+    //初始化群组列表里的东西-------------------------------------------------------
+    //群组列表
+    GroupListPanel=new QWidget();
+    gridlayout_GroupList = new QGridLayout(ui->Groups_tab);
+    GroupListscrollArea=new QScrollArea(ui->Groups_tab);
+
+    //加载数据
+
+    //消息初始化
+    initGroup_Tab();
+    GroupListscrollArea->setWidget(GroupListPanel);
+    gridlayout_GroupList->addWidget(GroupListscrollArea);
+    gridlayout_GroupList->setSpacing(0);
+    gridlayout_GroupList->setContentsMargins(0,0,0,0);
+    myXML->showGroupList();
+
+    //自动加载
+
 }
 //在好友tab里设置一些
 
@@ -144,6 +176,16 @@ void FriendWindow::initFriend_Tab()
     myDB->showUserList();
 }
 
+void FriendWindow::initMessage_Tab()
+{
+    myDB->showOwnMessage();
+}
+
+void FriendWindow::initGroup_Tab()
+{
+
+}
+
 
 
 void FriendWindow::mouseMoveEvent(QMouseEvent *event)
@@ -165,13 +207,51 @@ void FriendWindow::insertFriendItem(QString id, QString name, quint8 status, QSt
     if(isfriend==1)//是朋友
     {
 
-        FriendItem *frienditem = new FriendItem(this->FriendListPanel,0,j*70+2,id,name,status,photo,info);
+        FriendItem *frienditem = new FriendItem(this->FriendListPanel,0,j*75,id,name,status,photo,info);
         j++;
         w=frienditem->width();
         h=frienditem->height();
         this->FriendItemList.append(frienditem);
     }
-   this->FriendListPanel->setFixedSize(w,(j)*h);
+    this->FriendListPanel->setFixedSize(w,(j)*75);
+}
+
+void FriendWindow::updateMessagePanel(QDateTime time, QString message, QString peer)
+{
+
+    messageList[peer]=QString("在%1时,%2发来一条消息:%3").arg(time.toString()).arg(peer).arg(message);
+    insertMessageItem(messageList);
+}
+
+void FriendWindow::insertMessageItem(QMap<QString, QString>& messagelist)
+{
+    static int j=0;
+    int w,h;
+//     qDebug()<<"HELLO";
+//     qDebug()<<messagelist;
+
+    MessageItem *messageitem=new MessageItem(this->MessageListPanel,0,j*80);
+    this->MessageItemList.append(messageitem);
+    j++;
+//     w=messageitem->width();
+//     h=messageitem->height();
+    this->MessageListPanel->setFixedSize(260,j*80);
+}
+
+void FriendWindow::updateGroupPanel(QString groupID, QString name, QString info, QString admin, QMap<QString, QString> userList)
+{
+    insertGroupItem();
+}
+
+void FriendWindow::insertGroupItem()
+{
+    static int j=0;
+    qDebug()<<"XXXXXXX";
+
+    GroupItem *groupItem=new GroupItem(this->GroupListPanel,0,j*80);
+   this->GroupItemList.append(groupItem);
+    j++;
+    this->GroupListPanel->setFixedSize(260,j*80);
 }
 
 void FriendWindow::on_btnClose_clicked()

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MessageItem</class>
+ <widget class="QWidget" name="MessageItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>415</width>
+    <height>153</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/*全局设置*/
+* {	font-family: &quot;微软雅黑&quot;; font-size: 15px;}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="styleSheet">
+      <string notr="true">QGroupBox {background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #40E0E0, stop: 1 #FFFFFF);border: 2px solid gray;margin-top: 0px; }</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLabel" name="label_Photo">
+            <property name="styleSheet">
+             <string notr="true">QLabel{
+	border-color: rgb(23, 30, 5);
+  /*  border: 1px groove gray;*/
+    background-color: rgba(255, 193, 245, 0%);
+}
+QLabel:hover{
+	border-color: rgb(0, 170, 255);
+    border: 4px groove gray;
+    background-color: rgba(255, 193, 245, 0%);
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_name">
+            <property name="styleSheet">
+             <string notr="true">QLabel{
+	border-color: rgb(23, 30, 5);
+    font: 100 12pt &quot;微软雅黑&quot;;
+    color: rgb(33, 250, 127);
+    background-color: rgba(255, 193, 245, 0%);
+}
+QLabel:hover{
+	border-color: rgb(0, 170, 255);
+ 
+	color: rgb(255, 0, 0);
+	font: 100 20pt &quot;微软雅黑&quot;;
+    background-color: rgba(255, 193, 245, 0%);
+}</string>
+            </property>
+            <property name="text">
+             <string>瓜不甜</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="label_txt">
+                  <property name="text">
+                   <string>时间：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_time">
+                  <property name="text">
+                   <string>3月4日 下午3：45</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="resource.qrc">:/resource/image/mianwindows/ui/resource/image/friendwindow/new.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_message">
+              <property name="text">
+               <string>消息摘要：我去恶趣味金额s阿斯达斯</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::AutoText</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	border: 1px solid #c9c9c9;
+	background: #569082;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+}
+QPushButton:hover {
+	border: 1px solid #c9c9c9;
+	background: #ff9032;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 15px;
+   
+}
+QPushButton:pressed {
+	border:9px solid #c9c9c9;
+	background: #569082;
+	color:#ffffff;
+	font-family: &quot;微软雅黑&quot;;
+	font-size: 20px;
+   
+}</string>
+            </property>
+            <property name="text">
+             <string>标读</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
