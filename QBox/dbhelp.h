@@ -44,6 +44,8 @@ public slots:
     void showUserList();
     void showOwnMessage();
     void showGroupMessage();
+
+    QString getNamefromID(QString id);
     //更新用户列表
 
     //删除用户列表

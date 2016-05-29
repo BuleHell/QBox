@@ -1,5 +1,5 @@
 ﻿#include "qboxprotocol.h"
-
+QBoxProtocol *QBoxProtocol::myprot=NULL;
 QBoxProtocol::QBoxProtocol(QObject *parent) :
     QObject(parent)
 {

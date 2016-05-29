@@ -13,8 +13,6 @@ FriendItem::FriendItem(QWidget *parent,int x,int y,QString id, QString name, qui
     init();
     this->installEventFilter(this);
     Avatar->installEventFilter(this);
-
-
 }
 
 FriendItem::~FriendItem()
@@ -58,7 +56,7 @@ bool FriendItem::eventFilter(QObject *obj, QEvent *event)
         if(event->type()==QEvent::MouseButtonPress)
         {
             qDebug()<<"点击了我的图像"<<this->name;
-            talk=new TalkWindow();
+            talk=TalkWindow::getInstance();
             talk->init(  userid,
                          name,
                          status,
@@ -66,6 +64,7 @@ bool FriendItem::eventFilter(QObject *obj, QEvent *event)
                          info);
 
             talk->show();
+//            Tools::movetoRight(this->parent());
             return true;
         }else
         {
@@ -135,7 +134,7 @@ void FriendItem::init()
         pa.setColor(QPalette::WindowText,QColor(10,23,90,89));
         Status->setPalette(pa);
     }
-    Status->setText(QString("%1").arg(this->status));
+    Status->setText(Tools::getStatus(this->status));
     Status->setFont(QFont("微软雅黑",15,30));
     Status->setStyleSheet("QLabel:hover{color: rgb(255, 125, 0);}");
     Status->setToolTip("点击我，离线也可一发消息哦！");
@@ -150,7 +149,6 @@ void FriendItem::init()
     Avatar->setPixmap(QPixmap(this->photo));
     Avatar->setStyleSheet("QLabel:hover{border-color: rgb(255, 120, 31);}");
     Avatar->setCursor(QCursor(Qt::PointingHandCursor));
-    Avatar->setToolTip("我是"+this->name+",单机我，跟我聊天啊！");
-
+    Avatar->setToolTip("我是"+this->name+",点击我，跟我聊天啊！");
 
 }

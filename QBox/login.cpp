@@ -1,6 +1,5 @@
 ﻿#include "login.h"
 #include "ui_login.h"
-
 Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
@@ -16,6 +15,15 @@ Login::Login(QWidget *parent) :
     //做一个在登录界面上的动画
     ui->Logo->setText(QObject::tr("欢迎你使用QBox"));
     ui->Logo->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+
+    //做一个设置登录的显示IP和地址
+    ui->lineEdit_ip->setText(QString("127.0.0.1"));
+    ui->lineEdit_port->setText(QString("8989"));
+    ui->widget_Port->setVisible(false);
+    ui->widget_IP->setVisible(false);
+
+
+
     //窗体居中显示
     Tools::FormInCenter(this);
     //从setting中读出数据来填上
@@ -39,17 +47,17 @@ Login::Login(QWidget *parent) :
     myXML=GroupSetting::getInstance();
     myXML->createXML();
     //-------------------------------------
-//    QMap<QString, QString> user;
-//    user["21120335"]="徐锦涛";
-//    user["21120456"]="王瑞";
-//    user["32213432"]="张雁门关";
-//    myXML->update("001","星光","测试","81121115",user);
-//    myXML->update("002","星光","测试","81121115",user);
-//    myXML->update("003","星光","测试","81121115",user);
-//    myXML->update("004","星光","测试","81121115",user);
-//    myXML->update("005","星光","测试","81121115",user);
-//    myXML->update("006","星光","测试","81121115",user);
-//    myXML->update("007","星光","测试","81121115",user);
+    //    QMap<QString, QString> user;
+    //    user["21120335"]="徐锦涛";
+    //    user["21120456"]="王瑞";
+    //    user["32213432"]="张雁门关";
+    //    myXML->update("001","星光","测试","81121115",user);
+    //    myXML->update("002","星光","测试","81121115",user);
+    //    myXML->update("003","星光","测试","81121115",user);
+    //    myXML->update("004","星光","测试","81121115",user);
+    //    myXML->update("005","星光","测试","81121115",user);
+    //    myXML->update("006","星光","测试","81121115",user);
+    //    myXML->update("007","星光","测试","81121115",user);
     //--------------------------------------------
     //默认的值填上
     this->username=mysetting->getUsername();
@@ -58,7 +66,6 @@ Login::Login(QWidget *parent) :
     this->isremeber=mysetting->getIsremeber();
     this->pwd=mysetting->getPwd();
     this->status=mysetting->getStatus();
-    //    qDebug()<<this->status;
     //显示在Ui上
     this->ui->lineEditUser->setText(username);
     if(isremeber)
@@ -72,13 +79,18 @@ Login::Login(QWidget *parent) :
         }
         else
         {
-
             this->ui->lineEditPassword->setText(QString(""));
         }
 
     }
     this->Status_init();
     this->photo_init();
+
+    //-------------------
+    this->myPort=QBoxProtocol::getInstance();
+    //处理登录返回的函数   QString ID,CANLOGIN status, QDateTime time
+    connect(myPort,SIGNAL(back_Login_SLOT(QString ,CANLOGIN , QDateTime )),this,SLOT(LoginProcess(QString ,CANLOGIN , QDateTime)));
+    mynet=NetWork::getInstance();
 
 }
 
@@ -87,20 +99,16 @@ Login::Login(QWidget *parent) :
 void Login::Status_init()
 {
     QMenu * menu =ui->btnStatus->getmenu();
-    //            ui->Status_pushButton->getmenu();
     QActionGroup *actionGroup = new QActionGroup(this);
     menu->setStyleSheet("QMenu {color: white;background-color:#E78261; border: 1px solid black;width:70px;}"
                         "QMenu::item {background-color: transparent; }"
                         "QMenu::item:selected { background-color: #FF781F;}");
-    //:/resource/image/login/resource/image/login/svg/status-away-1.svg
     action[0] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imonline.png"), tr("在线"), this);
     action[1] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imhidden.png"), tr("隐身"), this);
     action[2] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imbusy.png"), tr("忙碌"), this);
     action[3] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imaway.png"), tr("离开"), this);
     action[4] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imcallme.png"), tr("求扰"), this);
     action[5] = new QAction(QIcon(":/resource/image/login/resource/image/login/status/imsilent.png"), tr("勿扰"), this);
-    //:/resource/image/login/resource/image/login/svg/status-busy-1.svg
-    //    :/resource/image/login/resource/image/login/status/imaway.png
     ImagesIcon[0] = ":/resource/image/login/resource/image/login/svg/status-online-1.svg";//初始化状态
     ImagesIcon[1] = ":/resource/image/login/resource/image/login/svg/status-hidden-1.svg";
     ImagesIcon[2] = ":/resource/image/login/resource/image/login/svg/status-busy-1.svg";
@@ -145,7 +153,6 @@ void Login::photo_init()
 
     }else
     {
-
         QMessageBox::information(this,tr("没有图片"),tr("请点击头像位置上传图片哦！"),QMessageBox::Ok);
     }
 
@@ -161,7 +168,6 @@ void Login::Status_Changed()
             ui->btnStatus->setIcon(QIcon(ImagesIcon[i]));//被点击后，把Menu的图片换成相应的图片
             qDebug()<<action[i]->text();
             this->setStatus(action[i]->text());
-            qDebug()<<"现在是槽在处理";
             mysetting->setStatus(action[i]->text());
             break;
         }
@@ -236,23 +242,45 @@ bool Login::eventFilter(QObject *obj, QEvent *ev)
     return QWidget::eventFilter(obj,ev);
 }
 
+
+
+//登陆的返回函数
+void Login::LoginProcess(QString ID, CANLOGIN status, QDateTime time)
+{
+    qDebug()<<"-----------------登录-------------------";
+    qDebug()<<"id:"<<ID<<"status"<<status<<"time:"<<time;
+
+    if(ID=="system")
+    {
+        qDebug()<<"系统返回消息";
+        if(status==SUCCESS)
+        {
+            //    假设登录成功
+            this->LoginSuccess();
+        }
+        if(status==ERRORPWD)
+        {
+            //密码错误
+ QMessageBox::information(NULL,QObject::tr("登录失败"),tr("你的密码或者是用户名错误，请重新登录"),QMessageBox::Ok);
+            ui->Logo->setText(QObject::tr("重新登录"));
+            ui->btnLogin->setEnabled(true);
+        }
+    }
+}
+
 void Login::on_btnLogin_clicked()
 {
     //网络部分先暂停下
     NetWork * a=NetWork::getInstance();
-    a->initSocket("127.0.0.1",8989);
+    QString ip=ui->lineEdit_ip->text();
+    int  port=ui->lineEdit_port->text().toInt();
+    qDebug()<<"IP:"<<ip<<"Port:"<<port;
+    a->initSocket(ip,port);
+    //更新一下数据
+    updataData();
     //写入数据
-
-    //查询出用户ID出来，填在这里
-
-    qDebug()<<"你点击了登录按钮";
-    //qDebug()<<a->ReadData();
-    //保存设置记录:先保存在本类的记录上，如果正确的话，就存入ini文件中
-
-    //假设登录成功
-    this->LoginSuccess();
-
-
+    myPort->ToLogin(username,pwd,"");
+    a->writeData(*(myPort->getBlock()));
     ui->Logo->setText(QObject::tr("正在登录中，请稍等"));
     ui->btnLogin->setEnabled(false);
 }
@@ -359,6 +387,15 @@ void Login::showRegisterView()
     Tools::FormInCenter(registerView);
     registerView->show();
 }
+
+void Login::updataData()
+{
+    username=this->ui->lineEditUser->text();//用户的名字
+    userid="";//用户的ID
+    //isremeber=this->ui->;//是否记住密码
+    pwd=this->ui->lineEditPassword->text();//密码
+    //   QString status;//状态
+}
 QString Login::getStatus() const
 {
     return status;
@@ -429,3 +466,15 @@ void Login::setUsername(const QString &value)
     username = value;
 }
 
+void Login::on_rb_Setting_clicked()
+{
+    if(ui->rb_Setting->isChecked())
+    {
+        ui->widget_Port->setVisible(true);
+        ui->widget_IP->setVisible(true);
+    }else
+    {
+        ui->widget_Port->setVisible(false);
+        ui->widget_IP->setVisible(false);
+    }
+}

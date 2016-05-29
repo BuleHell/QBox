@@ -4,6 +4,7 @@ NetWork::NetWork(QObject *parent) :
     QObject(parent)
 {
     qDebug()<<QObject::tr("客户端的Net构造函数被调用");
+    this->myProt=QBoxProtocol::getInstance();
 }
 
 NetWork::~NetWork()
@@ -26,14 +27,15 @@ void NetWork::initSocket(QString ip,int port)
 void NetWork::ReadError(QAbstractSocket::SocketError)
 {
     tcpClient->disconnectFromHost();//从主机断开链接
-    qDebug()<<QObject::tr("连接服务器失败");
+    QMessageBox::information(NULL,QObject::tr("网络链接错误"),tr("连接服务器失败")+tcpClient->errorString(),QMessageBox::Ok);
+//    qDebug()<<QObject::tr("连接服务器失败");
     qDebug()<<tcpClient->errorString();
 }
 
-QByteArray NetWork::ReadData()
+void NetWork::ReadData()
 {
-    qDebug()<<QString(tcpClient->readAll());
-    return tcpClient->readAll();
+//    qDebug()<<QString(tcpClient->readAll());
+     myProt->Open(&(tcpClient->readAll()));
 
 }
 
@@ -77,7 +79,8 @@ bool NetWork::TCPToHost(QHostAddress hostAddress, qint16 tcpPort)
         qDebug()<<QObject::tr("连接服务器成功");
         return true;
     }
-    qDebug()<<QObject::tr("连接服务器失败");
+        QMessageBox::information(NULL,QObject::tr("网络链接错误"),tr("连接服务器失败")+tcpClient->errorString(),QMessageBox::Ok);
+//    qDebug()<<QObject::tr("连接服务器失败");
     return false;
 }
 

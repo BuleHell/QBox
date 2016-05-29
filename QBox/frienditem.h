@@ -2,7 +2,6 @@
 #define FRIENDITEM_H
 #include<QtGui>
 #include"talkwindow.h"
-
 //这个是一个Item，即朋友列表额选项
 //需要做到的是：一：生成列表
 //该列表可以点击生成聊天的页面

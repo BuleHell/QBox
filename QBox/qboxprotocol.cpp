@@ -1,12 +1,11 @@
 ﻿#include "qboxprotocol.h"
-
+QBoxProtocol *QBoxProtocol::myprot=NULL;
 QBoxProtocol::QBoxProtocol(QObject *parent) :
     QObject(parent)
 {
     //要制作的数据流
     this->block=new QByteArray();
 }
-
 
 void QBoxProtocol::ToLogin(QString username, QString password, QString ID, QBOXMESSAGETYPE type, QDateTime time, MessageSize size)
 {

@@ -5,6 +5,7 @@
 #include<QtGui>
 #include"network.h"
 #include"mytcpserver.h"
+#include"qboxprotocol.h"
 #include"dbhelp.h"
 namespace Ui {
 class Window;
@@ -54,6 +55,18 @@ private slots:
     void ClientDisConnect(int clientID,QString IP,int Port);
     //读取客户端信息
     void ClientReadData(int clientID,QString IP,int Port,QByteArray data);
+//----------------------------------------------------------
+    void Login_Process(QString username,QString password,QString ID, QDateTime time);
+
+
+//----------------------------------------------------------
+
+
+
+
+
+
+
 
     //关闭按钮
     void on_btnClose_clicked();
@@ -85,6 +98,8 @@ private:
     //我的数据库
     DBHelp *myDB;
 
+    //我的协议解析
+    QBoxProtocol *myprot;
 
     QList<UserInfo> AllLinks;
 
@@ -100,6 +115,15 @@ private:
     //我的消息
     QString messagenow;
     QStringList messageList;
+
+
+    //---------------
+    //根据ID or username找到相应的端口号等等
+    void Find_IP_Port(QString userID,QString userName,int &clientid,int &port,QString &ip);
+
+
+
+
 
 private:
     void updateStatus();

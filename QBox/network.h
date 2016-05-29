@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 #include<QtGui>
+#include"qboxprotocol.h"
 //#include <QFile>
 //#include <QTime>
 //#include<QByteArray>
@@ -31,11 +32,12 @@ public:
     
 signals:
     //--------------------------------------------------
+    void SLOT_login();
 public slots:
     //链接服务器失败的错误消息槽:输出错误信息
     void ReadError(QAbstractSocket::SocketError);
     //读取数据的槽
-    QByteArray ReadData();
+    void ReadData();
 public:
     //写入数据
     void writeData(QByteArray data);
@@ -60,6 +62,8 @@ private:
     bool TCPoffHost();
     //--------------------------------------------------
 private:
+    QBoxProtocol *myProt;
+
     //----------------------------------
     QTcpSocket *tcpClient; //TCP客户端
     //----------------------------------

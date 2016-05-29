@@ -51,6 +51,10 @@ public slots:
     // 查询数据-->查询结果用信号返回
     //查询所有的用户
     void showUserList();
+    //查询某个用户的ID
+    QString FindID(QString name);
+    //查询密码是否正确
+    bool pwdisRight(QString name,QString passwd);
     //查询某个用户
     void showUser(QString id,QString name);
     //查询所有的部门

@@ -174,6 +174,61 @@ void DBHelp::showUserList()
 
 }
 
+QString DBHelp::FindID(QString name)
+{
+    QString ID;
+    if (!db.open())
+    {
+        //提示出错
+        qDebug()<<QObject::tr("数据库无法打开!");
+        return "DB ERROR";
+    }
+    //查询
+    QSqlQuery query;
+    query.prepare(QString("select UserID from UserList where UserName='%1'").arg(name));
+    if( !query.exec() )
+    {
+        qDebug() <<QObject::tr("查询UserList失败:")<< query.lastError();
+        return "query ERROR";
+    }
+    else
+    {
+        qDebug()<<QObject::tr("查询成功");
+        query.next();
+        ID=query.value(0).toString();
+        qDebug() <<ID;
+        return ID;
+    }
+
+}
+
+bool DBHelp::pwdisRight(QString name, QString passwd)
+{
+     QString pwd;
+    if (!db.open())
+    {
+        //提示出错
+        qDebug()<<QObject::tr("数据库无法打开!");
+        return "DB ERROR";
+    }
+    //查询
+    QSqlQuery query;
+    query.prepare(QString("select userPwd from UserList where UserName='%1'").arg(name));
+    if( !query.exec() )
+    {
+        qDebug() <<QObject::tr("查询UserList失败:")<< query.lastError();
+        return "query ERROR";
+    }
+    else
+    {
+        qDebug()<<QObject::tr("查询成功");
+        query.next();
+        pwd=query.value(0).toString();
+        qDebug() <<pwd;
+        return pwd==passwd;
+    }
+}
+
 void DBHelp::showUser(QString id, QString name)
 {
 

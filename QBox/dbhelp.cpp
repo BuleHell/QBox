@@ -202,6 +202,30 @@ void DBHelp::showGroupMessage()
 
 }
 
+QString DBHelp::getNamefromID(QString id)
+{
+    if (!db.open()) {
+        //提示出错
+        qDebug()<<QObject::tr("数据库无法打开!");
+        return "错误";
+    }
+    QSqlQuery query;
+    query.prepare(QString("select userName from UserList where userID='%1'").arg(id));
+    if( !query.exec() )
+    {
+        qDebug() << query.lastError();
+        qDebug()<<QObject::tr("查询失败");
+        return "错误";
+    }
+
+    else
+    {
+        qDebug()<<QObject::tr("查询成功");
+        query.next();
+        return query.value(0).toString();
+    }
+}
+
 bool DBHelp::insert_ownMessage(QString message, QString peer)
 {
 

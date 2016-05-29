@@ -18,8 +18,12 @@ class QBoxClient : public QObject
 public:
     explicit QBoxClient(QObject *parent = 0);
     ~QBoxClient();
+public:
+    FriendWindow *getFriendwindow() const;
+    void setFriendwindow(FriendWindow *value);
+
 signals:
-   void SLOT_LoginMessage(QString userid, QString username, QString pthotoPath,QString status);
+    void SLOT_LoginMessage(QString userid, QString username, QString pthotoPath,QString status);
 public slots:
     void showLogin();
     void showFriendWindow(QString userid, QString username, QString pthotoPath, QString status);
@@ -27,7 +31,8 @@ private:
     //所有可以操作的对象都在这里；
     Login *login;
     FriendWindow *friendwindow;
-
+    QBoxProtocol *myPrcot;
+    NetWork *myNet;
 };
 
 #endif // QBOXCLIENT_H

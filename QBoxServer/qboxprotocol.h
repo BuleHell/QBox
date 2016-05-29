@@ -75,7 +75,19 @@ typedef  quint16  MessageSize; /* 16 bit unsigned */ //16bit
 class QBoxProtocol : public QObject
 {
     Q_OBJECT
+public:
+    //制作成单例模式
+    static QBoxProtocol *myprot;
+    static QBoxProtocol*getInstance()
+    {
+        if(QBoxProtocol::myprot==NULL)
+        {
 
+            QBoxProtocol::myprot=new QBoxProtocol();
+
+        }
+        return myprot;
+    }
 public:
     explicit QBoxProtocol(QObject *parent = 0);
     //------------制作协议----------------------

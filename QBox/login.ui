@@ -248,7 +248,7 @@ QWidget#widgetPassword {
     <rect>
      <x>166</x>
      <y>240</y>
-     <width>211</width>
+     <width>231</width>
      <height>41</height>
     </rect>
    </property>
@@ -299,7 +299,7 @@ image: url(:/resource/image/login/resource/image/login/passwd.png);
     <rect>
      <x>166</x>
      <y>180</y>
-     <width>211</width>
+     <width>231</width>
      <height>41</height>
     </rect>
    </property>
@@ -361,8 +361,8 @@ url(:/resource/image/login/resource/image/login/person.png)}</string>
    <widget class="QMenuButton" name="btnStatus">
     <property name="geometry">
      <rect>
-      <x>167</x>
-      <y>-2</y>
+      <x>187</x>
+      <y>-3</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -497,6 +497,109 @@ QCheckBox:checked {
     <string>自动登录</string>
    </property>
   </widget>
+  <widget class="QWidget" name="widget_IP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>127</x>
+     <y>133</y>
+     <width>205</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget_IP {
+	border: 2px solid #c9c9c9;
+
+}</string>
+   </property>
+   <widget class="QLineEdit" name="lineEdit_ip">
+    <property name="geometry">
+     <rect>
+      <x>32</x>
+      <y>2</y>
+      <width>170</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>127.127.127.127</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_ip">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>7</y>
+      <width>28</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>IP：</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="widget_Port" native="true">
+   <property name="geometry">
+    <rect>
+     <x>19</x>
+     <y>133</y>
+     <width>100</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#widget_Port {
+	border: 2px solid #c9c9c9;
+
+}</string>
+   </property>
+   <widget class="QLabel" name="label_port">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>7</y>
+      <width>45</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>端口：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_port">
+    <property name="geometry">
+     <rect>
+      <x>42</x>
+      <y>2</y>
+      <width>56</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>8989</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QRadioButton" name="rb_Setting">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>143</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>labelLogo</zorder>
   <zorder>btnClose</zorder>
   <zorder>btnLogin</zorder>
@@ -509,6 +612,10 @@ QCheckBox:checked {
   <zorder>Logo</zorder>
   <zorder>cbkAutoLogin</zorder>
   <zorder>labelPhoto</zorder>
+  <zorder>widget_IP</zorder>
+  <zorder>widget_Port</zorder>
+  <zorder>rb_Setting</zorder>
+  <zorder></zorder>
  </widget>
  <customwidgets>
   <customwidget>

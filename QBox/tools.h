@@ -2,7 +2,9 @@
 #define TOOLS_H
 
 #include <QObject>
+#include<QtGui>
 #include <QDesktopWidget>
+
 class Tools : public QObject
 {
     Q_OBJECT
@@ -14,6 +16,11 @@ public:
     static void FormNotResize(QWidget *frm);
     //由数字获得状态
     static QString getStatus(int i);
+    //缓慢移动到右侧
+    static QString movetoRight(QWidget *frm);
+
+
+
 signals:
     
 public slots:

@@ -85,6 +85,20 @@ class QBoxProtocol : public QObject
     Q_OBJECT
 
 public:
+    //制作成单例模式
+    static QBoxProtocol *myprot;
+    static QBoxProtocol*getInstance()
+    {
+        if(QBoxProtocol::myprot==NULL)
+        {
+
+            QBoxProtocol::myprot=new QBoxProtocol();
+
+        }
+        return myprot;
+    }
+
+
     explicit QBoxProtocol(QObject *parent = 0);
     //------------制作协议----------------------
     //登录协议
@@ -127,30 +141,4 @@ private:
 };
 
 #endif
-//测试数据
-// QBOXPROTOCOL_H
-//    QBoxProtocol c;
-////    c.TO_Login(QString("徐锦涛"),QString("123"),QString("81121115"));
-////    c.Open(c.getBlock());
-////    c.To_beat(QString("123"),ONLINE);
-////    c.Open(c.getBlock());
-////    c.To_Message(QString("81121115"),QString("9243314"),QString("你个王八蛋"));
-////    c.Open(c.getBlock());
 
-////    c.BackLogin(QString("0000000"),SUCCESS);
-////    c.Open(c.getBlock());
-////    QMap<QString, quint8> LL;
-////    LL["21120335"]=1;
-////    LL[QString("21120332")]=1;
-////    LL[QString("21120333")]=22;
-////    LL[QString("21120334")]=1;
-////    LL[QString("21120330")]=0;
-////    LL[QString("21120325")]=1;
-////    LL[QString("21120321")]=0;
-////    LL[QString("21120325")]=0;
-////    LL[QString("21120333")]=2;
-////    LL[QString("21120322")]=1;
-////    c.Back_beat(LL,QString("00000000"));
-////    c.Open(c.getBlock());
-////    c.back_Message(QString("000000"), SUCESS_msg);
-////    c.Open(c.getBlock());

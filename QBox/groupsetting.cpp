@@ -109,7 +109,8 @@ void GroupSetting::showGroupList()
                     _info=node.toElement().firstChild().toText().data();
                 }else if(node.toElement().tagName() == "admin")
                 {
-                    _admin=node.toElement().firstChild().toText().data();
+//                    _admin=node.toElement().firstChild().toText().data();
+                    _admin=node.toElement().toElement().attribute("id");
 
                 }else if(node.toElement().tagName() == "user")
                 {
@@ -119,13 +120,11 @@ void GroupSetting::showGroupList()
                 }
                 node = node.nextSibling(); //读取下一个子节点
             }
-            qDebug()<<"groupID"<<_groupID<<"name:"<<_name<<"info"<<_info<<"admin"<<_admin<<"userlist"<<_userList;
-
+           // qDebug()<<"groupID"<<_groupID<<"name:"<<_name<<"info"<<_info<<"admin"<<_admin<<"userlist"<<_userList;
 
             //----------------------------------------
             emit SLOT_GroupInfo(_groupID,_name,_info,_admin,_userList);
             //----------------------------------------
-
         }
         //写入文件
         docWrite();

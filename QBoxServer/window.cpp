@@ -18,6 +18,13 @@ Window::Window(QWidget *parent) :
     myDB->LinkDatabase();
     //第一个参数是设置无边框。第二个参数是允许最小化与还原。
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint);
+    //安装协议解析器
+    myprot=QBoxProtocol::getInstance();
+    //安装登录协议
+    connect(myprot,SIGNAL(TO_Login_SLOT(QString,QString,QString,QDateTime)),this,SLOT(Login_Process(QString,QString,QString,QDateTime)));
+    //     connect(net,SIGNAL(ClientReadData(int,QString,int,QByteArray)),this,SLOT(ClientReadData(int,QString,int,QByteArray)));
+
+
     init();
 }
 
@@ -95,7 +102,7 @@ void Window::updataNoUserID()
                 ui->cbNogister->addItem(QString("%1").arg(AllLinks.at(i).clientID));
 
             }
-//            ui->cbSendToID->addItem(QString("%1").arg(AllLinks.at(i).clientID));
+            //            ui->cbSendToID->addItem(QString("%1").arg(AllLinks.at(i).clientID));
         }
     }
     else
@@ -108,55 +115,56 @@ void Window::timerEvent(QTimerEvent *event)
 {
     // 判断是哪个定时器
     if(event->timerId() == timerID1){
-//        qDebug() << "这个是2S的定时器";
+        //        qDebug() << "这个是2S的定时器";
         timeUpdate2s();
     }
     else if(event->timerId() == timerID2){
-//        qDebug() << "这个是3S的定时器";
+        //        qDebug() << "这个是3S的定时器";
         timeUpdate3s();
     }
     else{
-//        qDebug() << "这个是4S的定时器";
+        //        qDebug() << "这个是4S的定时器";
         timeUpdate4s();
     }
 }
 
 void Window::timerUpdate()
 {
-//    qDebug() << "这个是1S的定时器";
+    //    qDebug() << "这个是1S的定时器";
 
 }
 
 void Window::timeUpdate2s()
 {
-//      qDebug() << "这个是2S的定时器";
+    //      qDebug() << "这个是2S的定时器";
 }
 
 void Window::timeUpdate3s()
 {
-//     qDebug() << "这个是3S的定时器";
+    //     qDebug() << "这个是3S的定时器";
 
 }
 
 void Window::timeUpdate4s()
 {
-//     qDebug() << "这个是4S的定时器";
-     //刷新一下Notic
-     ui->LabelNotice->setText(tr("这里是公告栏"));
+    //     qDebug() << "这个是4S的定时器";
+    //刷新一下Notic
+    ui->LabelNotice->setText(tr("这里是公告栏"));
 }
 
 void Window::ClientConnect(int clientID, QString IP, int Port)
 {
-   ui->LabelNotice->setText(QString("客户端:[clientID:%1 IP:%2 Port:%3]建立链接").arg(clientID).arg(IP).arg(Port));
+    ui->LabelNotice->setText(QString("客户端:[clientID:%1 IP:%2 Port:%3]建立链接").arg(clientID).arg(IP).arg(Port));
+    qDebug()<<"来链接时的客户端是："<<clientID;
     UserInfo a;
     a.clientID=clientID;
     a.IP=IP;
     a.Port=Port;
-    a.userName=QString("未知");
+    a.userName=QString("未知:");
     a.userID=QString("未知");
     //现在存入
     AllLinks<<a;
-    qDebug()<<AllLinks.size();
+    qDebug()<<"AllLinks.size:"<<AllLinks.size();
     this->countLink++;
     updateStatus();
     updateUserSend();
@@ -166,7 +174,7 @@ void Window::ClientConnect(int clientID, QString IP, int Port)
 void Window::ClientDisConnect(int clientID, QString IP, int Port)
 {
     ui->LabelNotice->setText(tr("客户端:[clientID:%1 IP:%2 Port:%3]端开了链接")
-                            .arg(clientID).arg(IP).arg(Port));
+                             .arg(clientID).arg(IP).arg(Port));
     if(AllLinks.isEmpty())return;
     //移除
     for(int i=0;i<AllLinks.size();i++)
@@ -174,7 +182,7 @@ void Window::ClientDisConnect(int clientID, QString IP, int Port)
         if(AllLinks.at(i).clientID==clientID)
         {
             UserInfo temp=AllLinks.takeAt(i);
-            qDebug()<<"移除了:"<<temp.clientID;
+            //            qDebug()<<"移除了:"<<temp.clientID;
         }
 
     }
@@ -187,7 +195,120 @@ void Window::ClientDisConnect(int clientID, QString IP, int Port)
 
 void Window::ClientReadData(int clientID, QString IP, int Port, QByteArray data)
 {
-    ui->MessageView->append(QString(data));
+    qDebug()<<"读入的消息：";
+    qDebug()<<clientID<<IP<<Port<<data;
+    //------------------------------------------
+    //当场解开：
+    qDebug()<<"当场解开";
+    //建造一个输出流
+    QDataStream in(&data, QIODevice::ReadOnly);
+    //设定一个版本
+    in.setVersion(QDataStream::Qt_4_8);
+    //开始解析
+    if(data.isEmpty()){
+        qDebug()<<"Empty";
+    }
+    //先把头拿出来
+    quint16 _size;
+    quint16 _type;
+    QBOXMESSAGETYPE TYPE;
+    QString _ID;
+    QDateTime _time;
+    in>>_size;
+    in>>_type;
+    in>>_ID;
+    in>>_time;
+    TYPE=(QBOXMESSAGETYPE)_type;
+    if(TYPE==LOGIN)
+    {
+        //|-用户名-|-密码-|
+        QString name;
+        QString pswd;
+        in>>name;
+        in>>pswd;
+        qDebug()<<"name:"<<name<<"password"<<pswd<<"ID:"<<_ID<<"time:"<<_time;
+        //填入AllLink中
+        for(int i=0;i<this->AllLinks.size();i++)
+        {
+            qDebug()<<AllLinks.at(i).clientID;
+            if(AllLinks.at(i).clientID==clientID)
+            {
+                if(!name.isEmpty())
+                {
+                    AllLinks[i].userName=name;
+                    //把ID给赋值进去
+                    if(this->myDB->FindID(name)!="")
+                    {
+                        AllLinks[i].userID=this->myDB->FindID(name);
+                    }
+
+                    qDebug()<<"查出ID："<<AllLinks[i].userID;
+
+                }
+                if(!_ID.isEmpty())
+                {
+                    AllLinks[i].userID=_ID;
+                }
+
+            }
+
+        }
+
+    }
+
+    //触发登录的处理程序
+    this->myprot->Open(&data);
+    //------------------------------------------
+
+}
+
+void Window::Login_Process(QString username, QString password, QString ID, QDateTime time)
+{
+    //处理登录
+    for(int i=0;i<this->AllLinks.size();i++)
+    {
+        qDebug()<<"--------------------------";
+        qDebug()<<"clientID:"<<AllLinks.at(i).clientID;
+        qDebug()<<"IP:"<<AllLinks.at(i).IP;
+        qDebug()<<"Port:"<<AllLinks.at(i).Port;
+        qDebug()<<"username:"<<AllLinks.at(i).userName;
+        qDebug()<<"userID:"<<AllLinks.at(i).userID;
+        qDebug()<<"--------------------------";
+    }
+    qDebug()<<username<<password<<ID<<time;
+
+    //是否允许登录
+    bool isCanLogin=true;
+    //查询密码是否正确
+    isCanLogin=this->myDB->pwdisRight(username,password);
+
+    if(isCanLogin) //允许登录
+    {
+        qDebug()<<"密码正确";
+        //数据初始化
+        //在这里发送消息
+        myprot->BackLogin(QString("system"),SUCCESS);
+        //-----------------
+        int clientid;
+        QString ip;
+        int port;
+        Find_IP_Port(ID,username,clientid,port,ip);
+        net->SendData(clientid,ip,port,*(myprot->getBlock()));
+    }
+    else         //不允许登录
+    {
+        qDebug()<<"密码错误";
+        //数据初始化
+        //在这里发送消息
+        myprot->BackLogin(QString("system"),ERRORPWD);
+        //-----------------
+        int clientid;
+        QString ip;
+        int port;
+        Find_IP_Port(ID,username,clientid,port,ip);
+        net->SendData(clientid,ip,port,*(myprot->getBlock()));
+    }
+
 }
 
 void Window::on_btnClose_clicked()
@@ -202,8 +323,8 @@ void Window::on_btnListen_clicked()
         if(port==0){
             ui->LabelNotice->setText(tr("请设置端口号"));
         }
-        qDebug()<<"port:"<<ui->lineEdit_Port->text();
-        qDebug()<<port;
+        //        qDebug()<<"port:"<<ui->lineEdit_Port->text();
+        //        qDebug()<<port;
         bool ok=net->listen(QHostAddress::Any,port);
         if (ok)
         {
@@ -225,7 +346,7 @@ void Window::on_btnListen_clicked()
     else
     {
         net->close();
-        qDebug()<<"停止监听";
+        //        qDebug()<<"停止监听";
         ui->LabelNotice->setText("您停止了服务器的监听哦");
         ui->MessageView->append("停止监听");
         ui->btnListen->setText("监听");
@@ -301,7 +422,7 @@ void Window::on_cbBind_clicked()
 
 void Window::on_btnRegister_clicked()
 {
-
+    //这里注册：并且相应的允许
 }
 
 void Window::on_btnSend_clicked()
@@ -322,8 +443,8 @@ void Window::on_btnSend_clicked()
         QString ip;
         for(int i=0;i<this->AllLinks.size();i++)
         {
-           qDebug()<<AllLinks.at(i).clientID;
-           if(QString("%1").arg(AllLinks.at(i).clientID)==this->ui->cbSendToID->currentText())
+            qDebug()<<AllLinks.at(i).clientID;
+            if(QString("%1").arg(AllLinks.at(i).clientID)==this->ui->cbSendToID->currentText())
             {
                 port=AllLinks.at(i).Port;
                 ip=AllLinks.at(i).IP;
@@ -331,21 +452,44 @@ void Window::on_btnSend_clicked()
                 qDebug()<<"clientID:"<<clientid;
                 qDebug()<<"ip:"<<clientid;
                 qDebug()<<"port:"<<clientid;
-                qDebug()<<messagenow;
-                net->SendData(clientid,ip,port,messagenow.toAscii());
+                //在这里发送消息
+                myprot->To_Message(QString("81121115"),QString("9243314"),messagenow);
+                net->SendData(clientid,ip,port,*(myprot->getBlock()));
             }
 
         }
-
-
-
-
     }
-
-
 }
 
 void Window::on_btnClear_clicked()
 {
     this->ui->textEditMessage->clear();
+}
+
+void Window::Find_IP_Port(QString userID,QString userName,int &clientid,int &port,QString &ip)
+{
+    qDebug()<<userID;
+    qDebug()<<userName;
+
+    if(userID==QString("未知")||userName==QString("未知"))
+    {
+        qDebug()<<"两个未知，玩个屁";
+        return;
+    }
+    
+    for(int i=0;i<this->AllLinks.size();i++)
+    {
+        qDebug()<<AllLinks.at(i).clientID;
+        if(AllLinks.at(i).userID==userID||AllLinks.at(i) .userName==userName)
+        {
+            port=AllLinks.at(i).Port;
+            ip=AllLinks.at(i).IP;
+            clientid=AllLinks.at(i).clientID;
+            qDebug()<<"clientID:"<<clientid;
+            qDebug()<<"ip:"<<ip;
+            qDebug()<<"port:"<<port;
+
+        }
+
+    }
 }

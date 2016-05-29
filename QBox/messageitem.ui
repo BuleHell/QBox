@@ -6,16 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>415</width>
-    <height>153</height>
+    <width>260</width>
+    <height>70</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/*全局设置*/
-* {	font-family: &quot;微软雅黑&quot;; font-size: 15px;}</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="margin">
@@ -32,40 +31,20 @@
      <property name="title">
       <string/>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QLabel" name="label_Photo">
-            <property name="styleSheet">
-             <string notr="true">QLabel{
-	border-color: rgb(23, 30, 5);
-  /*  border: 1px groove gray;*/
-    background-color: rgba(255, 193, 245, 0%);
-}
-QLabel:hover{
-	border-color: rgb(0, 170, 255);
-    border: 4px groove gray;
-    background-color: rgba(255, 193, 245, 0%);
-}</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_name">
-            <property name="styleSheet">
-             <string notr="true">QLabel{
+     <widget class="QLabel" name="label_name">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>45</y>
+        <width>61</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
 	border-color: rgb(23, 30, 5);
     font: 100 12pt &quot;微软雅黑&quot;;
     color: rgb(33, 250, 127);
@@ -78,81 +57,77 @@ QLabel:hover{
 	font: 100 20pt &quot;微软雅黑&quot;;
     background-color: rgba(255, 193, 245, 0%);
 }</string>
-            </property>
-            <property name="text">
-             <string>瓜不甜</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QLabel" name="label_txt">
-                  <property name="text">
-                   <string>时间：</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_time">
-                  <property name="text">
-                   <string>3月4日 下午3：45</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_6">
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="resource.qrc">:/resource/image/mianwindows/ui/resource/image/friendwindow/new.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_message">
-              <property name="text">
-               <string>消息摘要：我去恶趣味金额s阿斯达斯</string>
-              </property>
-              <property name="textFormat">
-               <enum>Qt::AutoText</enum>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;瓜不甜&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_Photo">
+      <property name="geometry">
+       <rect>
+        <x>9</x>
+        <y>4</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	border-color: rgb(23, 30, 5);
+  /*  border: 1px groove gray;*/
+    background-color: rgba(255, 193, 245, 0%);
+}
+QLabel:hover{
+	border-color: rgb(0, 170, 255);
+    border: 4px groove gray;
+    background-color: rgba(255, 193, 245, 0%);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="resource.qrc">:/resource/image/login/resource/image/login/avatar.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btReaded">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>9</y>
+        <width>61</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
 	border: 1px solid #c9c9c9;
 	background: #569082;
 	color:#ffffff;
@@ -175,17 +150,54 @@ QPushButton:pressed {
 	font-size: 20px;
    
 }</string>
-            </property>
-            <property name="text">
-             <string>标读</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-     </layout>
+      </property>
+      <property name="text">
+       <string>标读</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_message">
+      <property name="geometry">
+       <rect>
+        <x>66</x>
+        <y>27</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>我去恶趣味金额sssadjaskjdkasjdklasdk阿斯达斯</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_time">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>5</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/*全局设置*/
+QLabel {	font-family: &quot;微软雅黑&quot;; font-size: 12px;
+			
+
+
+}</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#b0021c;&quot;&gt;3月4日 下午3：45&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>

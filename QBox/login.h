@@ -11,6 +11,7 @@
 #include"setting.h"
 #include"dbhelp.h"
 #include"groupsetting.h"
+#include"qboxprotocol.h"
 /*
  *这个文件的作用是处理登陆的逻辑
  *登录的界面在ui中设置，使用完全的MVC模式进行编码
@@ -42,7 +43,8 @@ protected:
 signals:
     //登录成功的信号
     void LoginSuccessSIGNAL(QString userid,QString username,QString pthotoPath,QString status);
-
+public slots:
+    void LoginProcess(QString ID,CANLOGIN status, QDateTime time);
 private slots:
     void Status_Changed();
     void on_btnLogin_clicked();
@@ -59,6 +61,8 @@ private slots:
 
     //登录成功的处理函数
     void LoginSuccess();
+    void on_rb_Setting_clicked();
+
 private:
 
     Ui::Login *ui;
@@ -79,8 +83,8 @@ private:
     Setting *mysetting; //我的配置设置
     DBHelp *myDB;//我的数据库
     GroupSetting *myXML;//我的XML保存
-
-
+    QBoxProtocol *myPort; //我的协议解析器
+    NetWork *mynet;
 
     void saveSetting();
 
@@ -91,6 +95,9 @@ public:
     void showRegisterView();
     //-------------------------
 private:
+    void updataData();
+
+
     QString username;//用户的名字
     QString userid;//用户的ID
     QDateTime lastlogin;//上次登录时间

@@ -49,5 +49,6 @@
         <file>resource/image/talkwindow/tools/sendButtonHover.png</file>
         <file>resource/image/talkwindow/tools/sendButtonPressed.png</file>
         <file>resource/image/talkwindow/tools/face.png</file>
+        <file>resource/image/talkwindow/group.png</file>
     </qresource>
 </RCC>
