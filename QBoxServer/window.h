@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include<QtGui>
-#include"network.h"
+#include"fullScreenWidget.h"
 #include"mytcpserver.h"
 #include"qboxprotocol.h"
 #include"dbhelp.h"
@@ -53,6 +53,12 @@ private slots:
     void ClientConnect( int clientID,QString IP,int Port);
     //客户端断开的处理槽
     void ClientDisConnect(int clientID,QString IP,int Port);
+
+    //清除所有的链接
+    void CleanAllLink();
+
+
+
     //读取客户端信息
     void ClientReadData(int clientID,QString IP,int Port,QByteArray data);
 //----------------------------------------------------------
@@ -82,6 +88,8 @@ private slots:
     void on_btnSend_clicked();
 
     void on_btnClear_clicked();
+
+    void on_tbCutPic_clicked();
 
 private:
     Ui::Window *ui;
@@ -121,12 +129,20 @@ private:
     //根据ID or username找到相应的端口号等等
     void Find_IP_Port(QString userID,QString userName,int &clientid,int &port,QString &ip);
 
+signals:
+ void setPixmap(QPixmap pixmap); //设置pixmap信息
+
+
+public:
+ QPixmap fullPixmap; //全屏图片
 
 
 
 
 private:
-    void updateStatus();
+
+   fullScreenWidget  *fullWidget;
+   void updateStatus();
 
 };
 

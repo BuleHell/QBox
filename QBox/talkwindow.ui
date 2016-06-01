@@ -147,22 +147,42 @@ QToolButton:pressed {
           </item>
           <item>
            <property name="text">
-            <string>7</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
             <string>8</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>9</string>
+            <string>10</string>
            </property>
           </item>
           <item>
            <property name="text">
-            <string>10</string>
+            <string>14</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>16</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>20</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>30</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>40</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>60</string>
            </property>
           </item>
          </widget>
@@ -181,6 +201,9 @@ QToolButton:pressed {
           <property name="text">
            <string>加重</string>
           </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item>
@@ -193,19 +216,6 @@ QToolButton:pressed {
           </property>
           <property name="text">
            <string>文件</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="tbImg">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>图片</string>
           </property>
          </widget>
         </item>
@@ -223,6 +233,19 @@ QToolButton:pressed {
          </widget>
         </item>
         <item>
+         <widget class="QToolButton" name="tbPlay">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>播放</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QToolButton" name="tbVoice">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -232,6 +255,9 @@ QToolButton:pressed {
           </property>
           <property name="text">
            <string>语音</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

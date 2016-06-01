@@ -7,6 +7,7 @@ Window::Window(QWidget *parent) :
 
     ui->setupUi(this);
     net=new myTcpServer(this);
+    fullWidget=new fullScreenWidget();
     //链接一些东西
     //链接客户端来链接的信号
     connect(net,SIGNAL(ClientConnect(int,QString,int)),this,SLOT(ClientConnect(int,QString,int)));
@@ -22,6 +23,9 @@ Window::Window(QWidget *parent) :
     myprot=QBoxProtocol::getInstance();
     //安装登录协议
     connect(myprot,SIGNAL(TO_Login_SLOT(QString,QString,QString,QDateTime)),this,SLOT(Login_Process(QString,QString,QString,QDateTime)));
+    connect(this,SIGNAL(setPixmap(QPixmap)),fullWidget,SLOT(loadBackgroundPixmap(QPixmap)));
+
+
     //     connect(net,SIGNAL(ClientReadData(int,QString,int,QByteArray)),this,SLOT(ClientReadData(int,QString,int,QByteArray)));
 
 
@@ -94,12 +98,12 @@ void Window::updataNoUserID()
 {
     if(!AllLinks.isEmpty())
     {
-        ui->cbNogister->clear();
+       // ui->cbNogister->clear();
         for(int i=0;i<AllLinks.size();i++)
         {
             if(AllLinks.at(i).userID==tr("未知"))
             {
-                ui->cbNogister->addItem(QString("%1").arg(AllLinks.at(i).clientID));
+         //       ui->cbNogister->addItem(QString("%1").arg(AllLinks.at(i).clientID));
 
             }
             //            ui->cbSendToID->addItem(QString("%1").arg(AllLinks.at(i).clientID));
@@ -107,7 +111,7 @@ void Window::updataNoUserID()
     }
     else
     {
-        ui->cbNogister->clear();
+//        ui->cbNogister->clear();
     }
 }
 
@@ -191,6 +195,21 @@ void Window::ClientDisConnect(int clientID, QString IP, int Port)
     updateStatus();
     updateUserSend();
     updataNoUserID();
+}
+
+void Window::CleanAllLink()
+{
+    for(int i=0;i<AllLinks.size();i++)
+    {
+        int clientID;
+        QString ip;
+        int port;
+
+        clientID=AllLinks.at(i).clientID;
+        ip=AllLinks.at(i).IP;
+        port=AllLinks.at(i).Port;
+        ClientDisConnect( clientID,ip,port );
+    }
 }
 
 void Window::ClientReadData(int clientID, QString IP, int Port, QByteArray data)
@@ -307,6 +326,12 @@ void Window::Login_Process(QString username, QString password, QString ID, QDate
         int port;
         Find_IP_Port(ID,username,clientid,port,ip);
         net->SendData(clientid,ip,port,*(myprot->getBlock()));
+
+
+        //断开链接
+        this->ClientDisConnect(clientid,ip,port);
+
+
     }
 
 }
@@ -336,21 +361,28 @@ void Window::on_btnListen_clicked()
             ui->btnTalk->setEnabled(true);
             ui->LabelNotice->setText("恭喜,服务器启动监听成功.....");
             this->timerID3 = startTimer(4000);//4秒
+            this->ui->MySetting->hide();
         }
         else
         {
             ui->LabelNotice->setText("悲剧了,服务器启动监听失败.....");
-
+            //把所有的链接都清除掉
+           // CleanAllLink();
         }
     }
     else
     {
+        //把所有的链接都清除掉
+       // CleanAllLink();
+
         net->close();
         //        qDebug()<<"停止监听";
         ui->LabelNotice->setText("您停止了服务器的监听哦");
         ui->MessageView->append("停止监听");
+
         ui->btnListen->setText("监听");
         this->isWork=false;
+        this->ui->MySetting->show();
         ui->lineEdit_Port->setEnabled(true);
         ui->btnSend->setEnabled(false);
         ui->btnClear->setEnabled(false);
@@ -492,4 +524,13 @@ void Window::Find_IP_Port(QString userID,QString userName,int &clientid,int &por
         }
 
     }
+}
+
+void Window::on_tbCutPic_clicked()
+{
+    //hide();
+    QPixmap pixmap = fullWidget->getFullScreenPixmap();
+    fullWidget->show();
+
+    emit setPixmap(pixmap); //发送信号，使用当前的屏幕的图片作背景图片
 }

@@ -2,9 +2,11 @@
 #define TALKWINDOW_H
 
 #include<QtGui>
+#include <QtMultimedia>
 #include"tools.h"
 #include"dbhelp.h"//数据库
 #include"groupsetting.h"//群组
+#include"fullScreenWidget.h"
 namespace Ui {
 class TalkWindow;
 }
@@ -51,6 +53,18 @@ private slots:
 
     void on_btnSend_clicked();
 
+    void on_tbCutPic_clicked();
+
+    void on_tbSpTxt_clicked(bool checked);
+
+    void on_cbFont_currentFontChanged(const QFont &f);
+
+    void on_cbNum_currentIndexChanged(const QString &arg1);
+
+    void on_tbVoice_clicked(bool checked);
+
+    void on_tbPlay_clicked();
+
 private:
     Ui::TalkWindow *ui;
     //这三个点：记录移动的事件
@@ -83,6 +97,18 @@ private:
     //我的消息记录
     QStringList MyMessageList;
     QString message;
+    fullScreenWidget *fullWidget;
+
+
+    //我的录音
+    QAudioInput * input;
+    QAudioOutput* output;
+    QFile *file;
+
+signals:
+    void setPixmap(QPixmap pixmap); //设置pixmap信息
+public:
+    QPixmap fullPixmap; //全屏图片
 
 };
 

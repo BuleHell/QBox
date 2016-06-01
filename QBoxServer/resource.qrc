@@ -1,7 +1,1 @@
-<RCC>
-    <qresource prefix="/resource/image">
-        <file>resource/sendButton.png</file>
-        <file>resource/sendButtonHover.png</file>
-        <file>resource/sendButtonPressed.png</file>
-    </qresource>
-</RCC>
+<RCC/>

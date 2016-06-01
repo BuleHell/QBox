@@ -142,34 +142,34 @@ bool DBHelp::insertUser(QString id, QString name, quint8 age, QString sex, QStri
 
 void DBHelp::showUserList()
 {
-    //    if (!db.open()) {
-    //        //提示出错
-    //        qDebug()<<QObject::tr("数据库无法打开!");
-    //        return;
-    //    }
-    //    //查询
-    //    QSqlQuery query;
-    //    query.prepare("select * from UserList ");
-    //    if( !query.exec() )
-    //    {
-    //        qDebug() <<QObject::tr("查询UserList失败:")<< query.lastError();
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        qDebug()<<QObject::tr("查询成功");
-    //        while(query.next())
-    //        {
-    //            //            qDebug() <<query.value(0).toString()
-    //            //                    <<query.value(1).toString()
-    //            //            <<query.value(2).toInt()
-    //            //            <<query.value(3).toString()
-    //            //            <<query.value(4).toString()
-    //            //            <<query.value(5).toInt();
-    //            emit SLOT_showUserList(query.value(0).toString(),query.value(1).toString(),query.value(2).toInt(),query.value(3).toString(),query.value(4).toString(),query.value(5).toInt());
-    //        }
-    //        return ;
-    //    }
+        if (!db.open()) {
+            //提示出错
+            qDebug()<<QObject::tr("数据库无法打开!");
+            return;
+        }
+        //查询
+        QSqlQuery query;
+        query.prepare("select * from UserList ");
+        if( !query.exec() )
+        {
+            qDebug() <<QObject::tr("查询UserList失败:")<< query.lastError();
+            return;
+        }
+        else
+        {
+            qDebug()<<QObject::tr("查询成功");
+            while(query.next())
+            {
+                //            qDebug() <<query.value(0).toString()
+                //                    <<query.value(1).toString()
+                //            <<query.value(2).toInt()
+                //            <<query.value(3).toString()
+                //            <<query.value(4).toString()
+                //            <<query.value(5).toInt();
+                /*emit SLOT_showUserList(query.value(0).toString(),query.value(1).toString(),query.value(2).toInt(),query.value(3).toString(),query.value(4).toString(),query.value(5).toInt());*/
+            }
+            return ;
+        }
 
 
 }

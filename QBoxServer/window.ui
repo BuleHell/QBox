@@ -360,146 +360,13 @@ border: 1px solid gray;
          <number>0</number>
         </property>
         <item>
-         <widget class="QComboBox" name="cbNogister">
-          <property name="minimumSize">
-           <size>
-            <width>200</width>
-            <height>0</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_id">
-          <property name="text">
-           <string>ID:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_UserID">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="inputMask">
-           <string>99999999; </string>
-          </property>
-          <property name="cursorPosition">
-           <number>0</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnRegister">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="sizeIncrement">
-           <size>
-            <width>0</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	border: 1px solid #c9c9c9;
-	background: #6bc260;
-	color:#ffffff;
-	font-family: &quot;微软雅黑&quot;;
-	font-size: 15px;
-}
-QPushButton:hover {
-	border: 1px solid #c9c9c9;
-	background: #ff9032;
-	color:#ffffff;
-	font-family: &quot;微软雅黑&quot;;
-	font-size: 15px;
-   
-}
-QPushButton:pressed {
-	border:9px solid #c9c9c9;
-	background: #569082;
-	color:#ffffff;
-	font-family: &quot;微软雅黑&quot;;
-	font-size: 20px;
-   
-}
-
-
-/*QPushButton
-{
-    background-color: transparent;
-    background-image: url(:/resource/image/talkwindow/resource/image/talkwindow/tools/sendButton.png);
-    background-repeat: none;    
-    border: none;
-    width: 50px;
-    height: 50px;
-}
-QPushButton:hover
-{
-   background-image:  url(:/resource/image/talkwindow/resource/image/talkwindow/tools/sendButtonHover.png);
-}
-
-QPushButton:pressed
-{
-   background-image: url(:/resource/image/talkwindow/resource/image/talkwindow/tools/sendButtonPressed.png)
-}
-
-QPushButton:focus {
-    outline: none;
-}*/
-</string>
-          </property>
-          <property name="text">
-           <string>注册</string>
-          </property>
-          <property name="autoRepeat">
-           <bool>false</bool>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
          <spacer name="horizontalSpacer">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>63</width>
             <height>20</height>
            </size>
           </property>
@@ -520,6 +387,18 @@ QPushButton:focus {
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_Port">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="inputMask">
            <string>9999; </string>
           </property>
@@ -569,6 +448,9 @@ QCheckBox:checked {
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
@@ -580,7 +462,7 @@ QCheckBox:checked {
      <item>
       <widget class="QPushButton" name="btnTalk">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -651,7 +533,7 @@ QPushButton:pressed {
       <item>
        <widget class="QWidget" name="MyTools" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -659,7 +541,7 @@ QPushButton:pressed {
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>120</height>
+          <height>115</height>
          </size>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
@@ -671,6 +553,12 @@ QPushButton:pressed {
          </property>
          <item row="0" column="0">
           <widget class="QWidget" name="MyEditToolsPanel" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="styleSheet">
             <string notr="true">/*输入用户名父控件*/
 QWidget#MyEditToolsPanel {

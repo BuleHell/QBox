@@ -17,23 +17,25 @@ TEMPLATE = app
 SOURCES += main.cpp\
     window.cpp \
     tools.cpp \
-    network.cpp \
     dbhelp.cpp \
     qboxprotocol.cpp \
     mytcpserver.cpp \
-    myclientsocket.cpp
+    myclientsocket.cpp \
+    fullScreenWidget.cpp
 
 HEADERS  += \
     window.h \
     tools.h \
-    network.h \
     dbhelp.h \
     qboxprotocol.h \
     mytcpserver.h \
-    myclientsocket.h
+    myclientsocket.h \
+    fullScreenWidget.h
 
 FORMS    += \
     window.ui
 
-RESOURCES += \
-    resource.qrc
+
+OTHER_FILES += \
+    icon.rc
+RC_FILE += icon.rc

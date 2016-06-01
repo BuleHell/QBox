@@ -95,6 +95,11 @@ public:
     void  ToLogin(QString username,QString password,QString ID,QBOXMESSAGETYPE type=LOGIN, QDateTime time=QDateTime::currentDateTime(), MessageSize size=0);
     //BACK:|-登录返回-|
     void BackLogin(QString ID,CANLOGIN iscan=NOLOGIN,QBOXMESSAGETYPE type=BACK_LOGIN, QDateTime time=QDateTime::currentDateTime(), MessageSize size=0);
+    //初始化朋友列表的
+    void initFriendList();
+
+
+
     //心跳协议
     void To_beat(QString ID,MYSTATUS status,QBOXMESSAGETYPE type=BEAT, QDateTime time=QDateTime::currentDateTime(), MessageSize size=0);
     //心跳协议返回

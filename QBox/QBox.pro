@@ -8,7 +8,6 @@ QT       += core gui sql xml
 QT       += network
 QT       += multimedia
 
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = QBox
@@ -31,7 +30,8 @@ SOURCES += main.cpp\
     talkwindow.cpp \
     frienditem.cpp \
     messageitem.cpp \
-    groupitem.cpp
+    groupitem.cpp \
+    fullScreenWidget.cpp
 
 HEADERS  += \
     login.h \
@@ -49,7 +49,8 @@ HEADERS  += \
     talkwindow.h \
     frienditem.h \
     messageitem.h \
-    groupitem.h
+    groupitem.h \
+    fullScreenWidget.h
 
 FORMS    += \
     login.ui \
